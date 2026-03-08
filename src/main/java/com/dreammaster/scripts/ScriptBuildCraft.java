@@ -13,7 +13,6 @@ import static gregtech.api.enums.Mods.ExtraBees;
 import static gregtech.api.enums.Mods.ExtraUtilities;
 import static gregtech.api.enums.Mods.Forestry;
 import static gregtech.api.enums.Mods.ForgeMicroblocks;
-import static gregtech.api.enums.Mods.IndustrialCraft2;
 import static gregtech.api.enums.Mods.Minecraft;
 import static gregtech.api.enums.Mods.OpenBlocks;
 import static gregtech.api.enums.Mods.ProjectRedCore;
@@ -53,25 +52,13 @@ public class ScriptBuildCraft implements IScriptLoader {
     @Override
     public List<String> getDependencies() {
         return Arrays.asList(
-                Botany.ID,
                 BuildCraftBuilders.ID,
                 BuildCraftCompat.ID,
                 BuildCraftCore.ID,
                 BuildCraftFactory.ID,
                 BuildCraftRobotics.ID,
                 BuildCraftSilicon.ID,
-                BuildCraftTransport.ID,
-                ExtraBees.ID,
-                ExtraUtilities.ID,
-                Forestry.ID,
-                ForgeMicroblocks.ID,
-                IndustrialCraft2.ID,
-                OpenBlocks.ID,
-                ProjectRedCore.ID,
-                ProjectRedExpansion.ID,
-                ProjectRedTransportation.ID,
-                Railcraft.ID,
-                RandomThings.ID);
+                BuildCraftTransport.ID);
     }
 
     @Override
@@ -81,17 +68,19 @@ public class ScriptBuildCraft implements IScriptLoader {
         addShapelessRecipe(getModItem(BuildCraftCore.ID, "ironGearItem", 1, 0, missing), "gearGtIron");
         addShapelessRecipe(getModItem(BuildCraftCore.ID, "stoneGearItem", 1, 0, missing), "gearGtStone");
         addShapelessRecipe(getModItem(BuildCraftCore.ID, "woodenGearItem", 1, 0, missing), "gearGtWood");
-        addShapedRecipe(
-                getModItem(BuildCraftCore.ID, "engineBlock", 1, 2, missing),
-                "plateInvar",
-                "plateLapis",
-                "plateInvar",
-                "springInvar",
-                getModItem(Minecraft.ID, "piston", 1, 0, missing),
-                "springInvar",
-                "gearInvar",
-                getModItem(Forestry.ID, "sturdyMachine", 1, 0, missing),
-                "gearInvar");
+        if (FML) {
+            addShapedRecipe(
+                    getModItem(BuildCraftCore.ID, "engineBlock", 1, 2, missing),
+                    "plateInvar",
+                    "plateLapis",
+                    "plateInvar",
+                    "springInvar",
+                    getModItem(Minecraft.ID, "piston", 1, 0, missing),
+                    "springInvar",
+                    "gearInvar",
+                    getModItem(Forestry.ID, "sturdyMachine", 1, 0, missing),
+                    "gearInvar");
+        }
         if (TCML) {
             addShapedRecipe(
                     getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipestructurecobblestone", 1, 0, missing),
@@ -115,17 +104,19 @@ public class ScriptBuildCraft implements IScriptLoader {
                     GTOreDictUnificator.get(OrePrefixes.stick, Materials.Stone, 1),
                     getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
                     GTOreDictUnificator.get(OrePrefixes.stick, Materials.Stone, 1));
-            addShapedRecipe(
-                    getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipepowerstone", 1, 0, missing),
-                    getModItem(ForgeMicroblocks.ID, "stoneRod", 1, 0, missing),
-                    getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
-                    getModItem(ForgeMicroblocks.ID, "stoneRod", 1, 0, missing),
-                    getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
-                    "wireGt01Nickel",
-                    getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
-                    getModItem(ForgeMicroblocks.ID, "stoneRod", 1, 0, missing),
-                    getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
-                    getModItem(ForgeMicroblocks.ID, "stoneRod", 1, 0, missing));
+            if (FMBML) {
+                addShapedRecipe(
+                        getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipepowerstone", 1, 0, missing),
+                        getModItem(ForgeMicroblocks.ID, "stoneRod", 1, 0, missing),
+                        getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
+                        getModItem(ForgeMicroblocks.ID, "stoneRod", 1, 0, missing),
+                        getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
+                        "wireGt01Nickel",
+                        getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
+                        getModItem(ForgeMicroblocks.ID, "stoneRod", 1, 0, missing),
+                        getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
+                        getModItem(ForgeMicroblocks.ID, "stoneRod", 1, 0, missing));
+            }
             addShapedRecipe(
                     getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipepowerwood", 1, 0, missing),
                     "stickWood",
@@ -204,40 +195,46 @@ public class ScriptBuildCraft implements IScriptLoader {
                     getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
                     "stickDiamond");
         }
-        addShapedRecipe(
-                getModItem(BuildCraftFactory.ID, "tankBlock", 1, 0, missing),
-                "screwIron",
-                "ringIron",
-                "screwIron",
-                "craftingToolWrench",
-                getModItem(Railcraft.ID, "glass", 1, 0, missing),
-                "craftingToolScrewdriver",
-                "screwIron",
-                "ringIron",
-                "screwIron");
-        addShapedRecipe(
-                getModItem(BuildCraftFactory.ID, "tankBlock", 1, 0, missing),
-                "screwIron",
-                "ringIron",
-                "screwIron",
-                "craftingToolWrench",
-                getModItem(ExtraUtilities.ID, "decorativeBlock2", 1, 5, missing),
-                "craftingToolScrewdriver",
-                "screwIron",
-                "ringIron",
-                "screwIron");
-        if (TCML) {
+        if (RCML) {
             addShapedRecipe(
-                    getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemsvoid", 1, 0, missing),
-                    getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
-                    getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
-                    getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
-                    getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
-                    "gemEnderPearl",
-                    getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
-                    getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
-                    getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
-                    getModItem(RandomThings.ID, "ingredient", 1, 1, missing));
+                    getModItem(BuildCraftFactory.ID, "tankBlock", 1, 0, missing),
+                    "screwIron",
+                    "ringIron",
+                    "screwIron",
+                    "craftingToolWrench",
+                    getModItem(Railcraft.ID, "glass", 1, 0, missing),
+                    "craftingToolScrewdriver",
+                    "screwIron",
+                    "ringIron",
+                    "screwIron");
+        }
+        if (XUML) {
+            addShapedRecipe(
+                    getModItem(BuildCraftFactory.ID, "tankBlock", 1, 0, missing),
+                    "screwIron",
+                    "ringIron",
+                    "screwIron",
+                    "craftingToolWrench",
+                    getModItem(ExtraUtilities.ID, "decorativeBlock2", 1, 5, missing),
+                    "craftingToolScrewdriver",
+                    "screwIron",
+                    "ringIron",
+                    "screwIron");
+        }
+        if (TCML) {
+            if (RTML) {
+                addShapedRecipe(
+                        getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemsvoid", 1, 0, missing),
+                        getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
+                        getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
+                        getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
+                        getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
+                        "gemEnderPearl",
+                        getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
+                        getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
+                        getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
+                        getModItem(RandomThings.ID, "ingredient", 1, 1, missing));
+            }
             addShapedRecipe(
                     getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipefluidsvoid", 1, 0, missing),
                     "stickAnyRubber",
@@ -250,23 +247,29 @@ public class ScriptBuildCraft implements IScriptLoader {
                     getModItem(TinkerConstruct.ID, "GlassPane", 1, 0, missing),
                     "stickAnyRubber");
         }
-        addShapedRecipe(
-                getModItem(BuildCraftFactory.ID, "autoWorkbenchBlock", 1, 0, missing),
-                "itemCasingAnyIron",
-                "gearGtSmallAnyIron",
-                "itemCasingAnyIron",
-                "gearGtSmallAnyIron",
-                getModItem(Forestry.ID, "factory2", 1, 2, missing),
-                "gearGtSmallAnyIron",
-                "itemCasingAnyIron",
-                ItemList.Electric_Motor_LV.get(1L),
-                "itemCasingAnyIron");
-        addShapelessRecipe(
-                getModItem(BuildCraftCore.ID, "paintbrush", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "paintBrush", 1, 0, missing));
-        addShapelessRecipe(
-                getModItem(BuildCraftFactory.ID, "autoWorkbenchBlock", 1, 0, missing),
-                getModItem(ProjectRedExpansion.ID, "projectred.expansion.machine2", 1, 11, missing));
+        if (FML) {
+            addShapedRecipe(
+                    getModItem(BuildCraftFactory.ID, "autoWorkbenchBlock", 1, 0, missing),
+                    "itemCasingAnyIron",
+                    "gearGtSmallAnyIron",
+                    "itemCasingAnyIron",
+                    "gearGtSmallAnyIron",
+                    getModItem(Forestry.ID, "factory2", 1, 2, missing),
+                    "gearGtSmallAnyIron",
+                    "itemCasingAnyIron",
+                    ItemList.Electric_Motor_LV.get(1L),
+                    "itemCasingAnyIron");
+        }
+        if (OML) {
+            addShapelessRecipe(
+                    getModItem(BuildCraftCore.ID, "paintbrush", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "paintBrush", 1, 0, missing));
+        }
+        if (PREDML) {
+            addShapelessRecipe(
+                    getModItem(BuildCraftFactory.ID, "autoWorkbenchBlock", 1, 0, missing),
+                    getModItem(ProjectRedExpansion.ID, "projectred.expansion.machine2", 1, 11, missing));
+        }
         addShapedRecipe(
                 getModItem(BuildCraftBuilders.ID, "fillerBlock", 1, 0, missing),
                 ItemList.Robot_Arm_MV.get(1L),
@@ -421,33 +424,38 @@ public class ScriptBuildCraft implements IScriptLoader {
                 "ingotStainlessSteel",
                 "craftingToolHardHammer",
                 "ingotStainlessSteel");
-
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 1, 1, missing),
-                        getModItem(Forestry.ID, "propolis", 2, 0, missing))
-                .itemOutputs(getModItem(BuildCraftCompat.ID, "item.buildcraftPipe.pipeitemspropolis", 1, 0, missing))
-                .fluidInputs(FluidRegistry.getFluidStack("for.honey", 400)).duration(15 * SECONDS).eut(48)
-                .addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 1, 1, missing),
-                        getModItem(Forestry.ID, "propolis", 2, 0, missing))
-                .itemOutputs(getModItem(BuildCraftCompat.ID, "item.buildcraftPipe.pipeitemspropolis", 1, 0, missing))
-                .fluidInputs(FluidRegistry.getFluidStack("honey", 400)).duration(15 * SECONDS).eut(48)
-                .addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(Minecraft.ID, "redstone_torch", 1, 0, missing),
-                        getModItem(ProjectRedCore.ID, "projectred.core.part", 1, 30, missing))
-                .itemOutputs(getModItem(BuildCraftCore.ID, "markerBlock", 1, 0, missing)).duration(5 * SECONDS)
-                .eut(TierEU.RECIPE_MV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(Minecraft.ID, "redstone_torch", 1, 0, missing),
-                        getModItem(ProjectRedCore.ID, "projectred.core.part", 1, 24, missing))
-                .itemOutputs(getModItem(BuildCraftCore.ID, "pathMarkerBlock", 1, 0, missing)).duration(5 * SECONDS)
-                .eut(TierEU.RECIPE_MV).addTo(assemblerRecipes);
+        if (FML && PREDML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 1, 1, missing),
+                            getModItem(Forestry.ID, "propolis", 2, 0, missing))
+                    .itemOutputs(
+                            getModItem(BuildCraftCompat.ID, "item.buildcraftPipe.pipeitemspropolis", 1, 0, missing))
+                    .fluidInputs(FluidRegistry.getFluidStack("for.honey", 400)).duration(15 * SECONDS).eut(48)
+                    .addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 1, 1, missing),
+                            getModItem(Forestry.ID, "propolis", 2, 0, missing))
+                    .itemOutputs(
+                            getModItem(BuildCraftCompat.ID, "item.buildcraftPipe.pipeitemspropolis", 1, 0, missing))
+                    .fluidInputs(FluidRegistry.getFluidStack("honey", 400)).duration(15 * SECONDS).eut(48)
+                    .addTo(assemblerRecipes);
+        }
+        if (PREDML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(Minecraft.ID, "redstone_torch", 1, 0, missing),
+                            getModItem(ProjectRedCore.ID, "projectred.core.part", 1, 30, missing))
+                    .itemOutputs(getModItem(BuildCraftCore.ID, "markerBlock", 1, 0, missing)).duration(5 * SECONDS)
+                    .eut(TierEU.RECIPE_MV).addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(Minecraft.ID, "redstone_torch", 1, 0, missing),
+                            getModItem(ProjectRedCore.ID, "projectred.core.part", 1, 24, missing))
+                    .itemOutputs(getModItem(BuildCraftCore.ID, "pathMarkerBlock", 1, 0, missing)).duration(5 * SECONDS)
+                    .eut(TierEU.RECIPE_MV).addTo(assemblerRecipes);
+        }
         GTValues.RA.stdBuilder()
                 .itemInputs(
                         getModItem(Minecraft.ID, "paper", 1, 0, missing),
@@ -462,18 +470,24 @@ public class ScriptBuildCraft implements IScriptLoader {
                 .itemOutputs(getModItem(BuildCraftBuilders.ID, "blueprintItem", 1, 0, missing))
                 .fluidInputs(FluidRegistry.getFluidStack("dye.watermixed.dyeblue", 144)).duration(5 * SECONDS)
                 .eut(TierEU.RECIPE_LV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(Railcraft.ID, "glass", 1, 0, missing),
-                        GTOreDictUnificator.get(OrePrefixes.ring, Materials.Iron, 2L))
-                .itemOutputs(getModItem(BuildCraftFactory.ID, "tankBlock", 1, 0, missing)).duration(5 * SECONDS)
-                .eut(TierEU.RECIPE_ULV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(ExtraUtilities.ID, "decorativeBlock2", 1, 5, missing),
-                        GTOreDictUnificator.get(OrePrefixes.ring, Materials.Iron, 2L))
-                .itemOutputs(getModItem(BuildCraftFactory.ID, "tankBlock", 1, 0, missing)).duration(5 * SECONDS)
-                .eut(TierEU.RECIPE_ULV).addTo(assemblerRecipes);
+        if (RCML)
+
+        {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(Railcraft.ID, "glass", 1, 0, missing),
+                            GTOreDictUnificator.get(OrePrefixes.ring, Materials.Iron, 2L))
+                    .itemOutputs(getModItem(BuildCraftFactory.ID, "tankBlock", 1, 0, missing)).duration(5 * SECONDS)
+                    .eut(TierEU.RECIPE_ULV).addTo(assemblerRecipes);
+        }
+        if (XUML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(ExtraUtilities.ID, "decorativeBlock2", 1, 5, missing),
+                            GTOreDictUnificator.get(OrePrefixes.ring, Materials.Iron, 2L))
+                    .itemOutputs(getModItem(BuildCraftFactory.ID, "tankBlock", 1, 0, missing)).duration(5 * SECONDS)
+                    .eut(TierEU.RECIPE_ULV).addTo(assemblerRecipes);
+        }
         GTValues.RA.stdBuilder().itemInputs(getModItem(Minecraft.ID, "paper", 8, 0, missing)).circuit(8)
                 .itemOutputs(getModItem(BuildCraftRobotics.ID, "redstone_board", 1, 0, missing))
                 .fluidInputs(FluidRegistry.getFluidStack("molten.redstone", 144)).duration(10 * SECONDS)
@@ -493,69 +507,86 @@ public class ScriptBuildCraft implements IScriptLoader {
                         getModItem(Minecraft.ID, "dye", 1, 11, missing))
                 .itemOutputs(getModItem(BuildCraftCore.ID, "mapLocation", 1, 0, missing)).duration(10 * SECONDS)
                 .eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(Minecraft.ID, "paper", 8, 0, missing),
-                        getModItem(Botany.ID, "pigment", 1, 78, missing))
-                .itemOutputs(getModItem(BuildCraftCore.ID, "mapLocation", 1, 0, missing)).duration(10 * SECONDS)
-                .eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(Minecraft.ID, "paper", 8, 0, missing),
-                        getModItem(ExtraBees.ID, "misc", 1, 20, missing))
-                .itemOutputs(getModItem(BuildCraftCore.ID, "mapLocation", 1, 0, missing)).duration(10 * SECONDS)
-                .eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
+        if (BOML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(Minecraft.ID, "paper", 8, 0, missing),
+                            getModItem(Botany.ID, "pigment", 1, 78, missing))
+                    .itemOutputs(getModItem(BuildCraftCore.ID, "mapLocation", 1, 0, missing)).duration(10 * SECONDS)
+                    .eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
+        }
+        if (EXML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(Minecraft.ID, "paper", 8, 0, missing),
+                            getModItem(ExtraBees.ID, "misc", 1, 20, missing))
+                    .itemOutputs(getModItem(BuildCraftCore.ID, "mapLocation", 1, 0, missing)).duration(10 * SECONDS)
+                    .eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
+        }
         GTValues.RA.stdBuilder()
                 .itemInputs(
                         getModItem(BuildCraftCore.ID, "wrenchItem", 1, 0, missing),
                         getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 0, missing))
                 .itemOutputs(getModItem(BuildCraftTransport.ID, "gateCopier", 1, 0, missing)).duration(5 * SECONDS)
                 .eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 16, 0, missing),
-                        ItemList.Conveyor_Module_HV.get(1L))
-                .itemOutputs(getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemswood", 16, 0, missing))
-                .duration(20 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 16, 0, missing),
-                        getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 1, 1, missing))
-                .itemOutputs(getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemsiron", 16, 0, missing))
-                .duration(20 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 16, 0, missing),
-                        ItemList.Electric_Motor_HV.get(1L))
-                .itemOutputs(getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemsgold", 16, 0, missing))
-                .duration(20 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 8, 0, missing),
-                        getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 1, 4, missing))
-                .itemOutputs(getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemsdiamond", 8, 0, missing))
-                .duration(20 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 16, 0, missing),
-                        ItemList.Robot_Arm_HV.get(1L))
-                .itemOutputs(
-                        getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemsobsidian", 16, 0, missing))
-                .duration(20 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 8, 0, missing),
-                        GTOreDictUnificator.get(OrePrefixes.circuit, Materials.HV, 1))
-                .itemOutputs(getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemsemerald", 8, 0, missing))
-                .duration(20 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(Forestry.ID, "factory2", 1, 2, missing),
-                        GTOreDictUnificator.get(OrePrefixes.gearGtSmall, Materials.Iron, 1),
-                        GTOreDictUnificator.get(OrePrefixes.itemCasing, Materials.Iron, 2),
-                        ItemList.Electric_Motor_LV.get(1L))
-                .itemOutputs(getModItem(BuildCraftFactory.ID, "autoWorkbenchBlock", 1, 0, missing))
-                .duration(10 * SECONDS).eut(TierEU.RECIPE_LV).addTo(assemblerRecipes);
+        if (PREDML)
+
+        {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 16, 0, missing),
+                            ItemList.Conveyor_Module_HV.get(1L))
+                    .itemOutputs(
+                            getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemswood", 16, 0, missing))
+                    .duration(20 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 16, 0, missing),
+                            getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 1, 1, missing))
+                    .itemOutputs(
+                            getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemsiron", 16, 0, missing))
+                    .duration(20 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 16, 0, missing),
+                            ItemList.Electric_Motor_HV.get(1L))
+                    .itemOutputs(
+                            getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemsgold", 16, 0, missing))
+                    .duration(20 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 8, 0, missing),
+                            getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 1, 4, missing))
+                    .itemOutputs(
+                            getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemsdiamond", 8, 0, missing))
+                    .duration(20 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 16, 0, missing),
+                            ItemList.Robot_Arm_HV.get(1L))
+                    .itemOutputs(
+                            getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemsobsidian", 16, 0, missing))
+                    .duration(20 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(ProjectRedTransportation.ID, "projectred.transportation.pipe", 8, 0, missing),
+                            GTOreDictUnificator.get(OrePrefixes.circuit, Materials.HV, 1))
+                    .itemOutputs(
+                            getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipeitemsemerald", 8, 0, missing))
+                    .duration(20 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
+        }
+        if (FML)
+
+        {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(Forestry.ID, "factory2", 1, 2, missing),
+                            GTOreDictUnificator.get(OrePrefixes.gearGtSmall, Materials.Iron, 1),
+                            GTOreDictUnificator.get(OrePrefixes.itemCasing, Materials.Iron, 2),
+                            ItemList.Electric_Motor_LV.get(1L))
+                    .itemOutputs(getModItem(BuildCraftFactory.ID, "autoWorkbenchBlock", 1, 0, missing))
+                    .duration(10 * SECONDS).eut(TierEU.RECIPE_LV).addTo(assemblerRecipes);
+        }
         GTValues.RA.stdBuilder()
                 .itemInputs(
                         GTOreDictUnificator.get(OrePrefixes.plate, Materials.Emerald, 1L),

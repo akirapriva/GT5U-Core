@@ -1,5 +1,6 @@
 package com.dreammaster.scripts;
 
+import static com.dreammaster.scripts.BooleanModLoaded.*;
 import static gregtech.api.enums.Mods.AvaritiaAddons;
 import static gregtech.api.enums.Mods.BloodArsenal;
 import static gregtech.api.enums.Mods.BloodMagic;
@@ -18,7 +19,6 @@ import static gregtech.api.enums.Mods.ProjectRedIntegration;
 import static gregtech.api.enums.Mods.Railcraft;
 import static gregtech.api.enums.Mods.Thaumcraft;
 import static gregtech.api.enums.Mods.TinkerConstruct;
-import static gregtech.api.enums.Mods.TinkersGregworks;
 import static gregtech.api.recipe.RecipeMaps.assemblerRecipes;
 import static gregtech.api.recipe.RecipeMaps.blastFurnaceRecipes;
 import static gregtech.api.recipe.RecipeMaps.hammerRecipes;
@@ -58,25 +58,7 @@ public class ScriptDraconicEvolution implements IScriptLoader {
 
     @Override
     public List<String> getDependencies() {
-        return Arrays.asList(
-                AvaritiaAddons.ID,
-                BloodArsenal.ID,
-                BloodMagic.ID,
-                Botania.ID,
-                BuildCraftTransport.ID,
-                DraconicEvolution.ID,
-                EnderIO.ID,
-                EtFuturumRequiem.ID,
-                ExtraUtilities.ID,
-                Forestry.ID,
-                IndustrialCraft2.ID,
-                OpenBlocks.ID,
-                OpenComputers.ID,
-                ProjectRedIntegration.ID,
-                Railcraft.ID,
-                Thaumcraft.ID,
-                TinkerConstruct.ID,
-                TinkersGregworks.ID);
+        return Arrays.asList(DraconicEvolution.ID, IndustrialCraft2.ID);
     }
 
     @Override
@@ -92,17 +74,19 @@ public class ScriptDraconicEvolution implements IScriptLoader {
                 "blockSteelMagnetic",
                 "ingotSteelMagnetic",
                 "ingotSteelMagnetic");
-        addShapedRecipe(
-                getModItem(DraconicEvolution.ID, "draconiumChest", 1, 0, missing),
-                "plateObsidian",
-                getModItem(EnderIO.ID, "blockCapBank", 1, 1, missing),
-                "plateObsidian",
-                getModItem(EtFuturumRequiem.ID, "blast_furnace", 1, 0, missing),
-                getModItem(AvaritiaAddons.ID, "CompressedChest", 1, 0, missing),
-                ItemList.Cover_Crafting.get(1L),
-                "plateObsidian",
-                "plateObsidian",
-                "plateObsidian");
+        if (AAML && EFRML && EIOML) {
+            addShapedRecipe(
+                    getModItem(DraconicEvolution.ID, "draconiumChest", 1, 0, missing),
+                    "plateObsidian",
+                    getModItem(EnderIO.ID, "blockCapBank", 1, 1, missing),
+                    "plateObsidian",
+                    getModItem(EtFuturumRequiem.ID, "blast_furnace", 1, 0, missing),
+                    getModItem(AvaritiaAddons.ID, "CompressedChest", 1, 0, missing),
+                    ItemList.Cover_Crafting.get(1L),
+                    "plateObsidian",
+                    "plateObsidian",
+                    "plateObsidian");
+        }
         addShapelessRecipe(
                 getModItem(DraconicEvolution.ID, "safetyMatch", 1, 1000, missing),
                 ItemList.Tool_Matches.get(1L),
@@ -140,228 +124,234 @@ public class ScriptDraconicEvolution implements IScriptLoader {
                 "plateEuropium",
                 'e',
                 getModItem(DraconicEvolution.ID, "draconicCore", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "teleporterMKII", 1, 0, missing),
-                "---aaa---",
-                "-aabcbaa-",
-                "-adefeda-",
-                "aghaiahga",
-                "acaigiaca",
-                "abaaiaaba",
-                "-agefega-",
-                "-aabcbaa-",
-                "---aaa---",
-                'a',
-                "plateDenseDraconium",
-                'b',
-                "plateDenseDraconiumAwakened",
-                'c',
-                new ItemStack(TinkerTools.largePlate, 1, Tonkers.infinityMetalId),
-                'd',
-                ItemList.Field_Generator_UV.get(1L),
-                'e',
-                ItemList.Emitter_UV.get(1L),
-                'f',
-                "blockAmericium",
-                'g',
-                getModItem(DraconicEvolution.ID, "teleporterMKI", 1, 0, missing),
-                'h',
-                ItemList.Sensor_UV.get(1L),
-                'i',
-                getModItem(DraconicEvolution.ID, "awakenedCore", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "draconiumFluxCapacitor", 1, 0, missing),
-                "---------",
-                "----a----",
-                "--abcba--",
-                "--badab--",
-                "-acdedca-",
-                "--badab--",
-                "--abcba--",
-                "----a----",
-                "---------",
-                'a',
-                "plateDraconium",
-                'b',
-                "wireGt02Superconductor",
-                'c',
-                getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
-                'd',
-                createItemStack(EnderIO.ID, "blockCapBank", 1, 3, "{type:\"VIBRANT\",storedEnergyRF:0}", missing),
-                'e',
-                getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "wyvernSword", 1, 0, missing),
-                "-------aa",
-                "------aba",
-                "-----aca-",
-                "----ada--",
-                "-e-ada---",
-                "--efa----",
-                "--ce-----",
-                "-c--e----",
-                "c--------",
-                'a',
-                "plateDraconium",
-                'b',
-                getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
-                'c',
-                "ingotDraconium",
-                'd',
-                getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing),
-                'e',
-                "ingotNeutronium",
-                'f',
-                getModItem(BloodMagic.ID, "energySword", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "wyvernPickaxe", 1, 0, missing),
-                "-aaabaaa-",
-                "accdedcca",
-                "aa--f--aa",
-                "----f----",
-                "----f----",
-                "----f----",
-                "----f----",
-                "----f----",
-                "----f----",
-                'a',
-                "plateDraconium",
-                'b',
-                getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
-                'c',
-                "ingotDraconium",
-                'd',
-                getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing),
-                'e',
-                getModItem(BloodMagic.ID, "boundPickaxe", 1, 0, missing),
-                'f',
-                "ingotNeutronium");
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "wyvernShovel", 1, 0, missing),
-                "------aab",
-                "-----acda",
-                "------aca",
-                "-----e-a-",
-                "----e----",
-                "---e-----",
-                "--e------",
-                "-e-------",
-                "e--------",
-                'a',
-                "plateDraconium",
-                'b',
-                getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
-                'c',
-                getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing),
-                'd',
-                getModItem(BloodMagic.ID, "boundShovel", 1, 0, missing),
-                'e',
-                "ingotNeutronium");
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "wyvernBow", 1, 0, missing),
-                "---ab----",
-                "--a-c----",
-                "-a--c----",
-                "a---c----",
-                "d---e----",
-                "a---c----",
-                "-a--c----",
-                "--a-c----",
-                "---ab----",
-                'a',
-                "plateDraconium",
-                'b',
-                getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing),
-                'c',
-                "ingotNeutronium",
-                'd',
-                getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
-                'e',
-                getModItem(BloodArsenal.ID, "bound_bow", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "wyvernHelm", 1, 0, missing),
-                "--aaaaa--",
-                "-abbcbba-",
-                "-a-ded-a-",
-                "-abbbbba-",
-                "-abbbbba-",
-                "-ab---ba-",
-                "---------",
-                "---------",
-                "---------",
-                'a',
-                "plateNeutronium",
-                'b',
-                "plateDraconium",
-                'c',
-                getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
-                'd',
-                getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing),
-                'e',
-                getModItem(BloodMagic.ID, "sanguineHelmet", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "wyvernChest", 1, 0, missing),
-                "-aa---aa-",
-                "aaa---aaa",
-                "aaa---aaa",
-                "-abbbbba-",
-                "-abbcbba-",
-                "-abdedba-",
-                "-abbbbba-",
-                "-abbbbba-",
-                "--aaaaa--",
-                'a',
-                "plateNeutronium",
-                'b',
-                "plateDraconium",
-                'c',
-                getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
-                'd',
-                getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing),
-                'e',
-                getModItem(BloodMagic.ID, "sanguineRobe", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "wyvernLeggs", 1, 0, missing),
-                "aaaaaaaaa",
-                "abbbcbbba",
-                "abaadaaba",
-                "aba---aba",
-                "aea---aea",
-                "aba---aba",
-                "aba---aba",
-                "aba---aba",
-                "aaa---aaa",
-                'a',
-                "plateNeutronium",
-                'b',
-                "plateDraconium",
-                'c',
-                getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
-                'd',
-                getModItem(BloodMagic.ID, "sanguinePants", 1, 0, missing),
-                'e',
-                getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "wyvernBoots", 1, 0, missing),
-                "-aaabaaa-",
-                "-acadaca-",
-                "-aca-aca-",
-                "-aca-aca-",
-                "aeca-acea",
-                "aaaa-aaaa",
-                "---------",
-                "---------",
-                "---------",
-                'a',
-                "plateNeutronium",
-                'b',
-                getModItem(BloodMagic.ID, "sanguineBoots", 1, 0, missing),
-                'c',
-                "plateDraconium",
-                'd',
-                getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
-                'e',
-                getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing));
+        if (TCML) {
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "teleporterMKII", 1, 0, missing),
+                    "---aaa---",
+                    "-aabcbaa-",
+                    "-adefeda-",
+                    "aghaiahga",
+                    "acaigiaca",
+                    "abaaiaaba",
+                    "-agefega-",
+                    "-aabcbaa-",
+                    "---aaa---",
+                    'a',
+                    "plateDenseDraconium",
+                    'b',
+                    "plateDenseDraconiumAwakened",
+                    'c',
+                    new ItemStack(TinkerTools.largePlate, 1, Tonkers.infinityMetalId),
+                    'd',
+                    ItemList.Field_Generator_UV.get(1L),
+                    'e',
+                    ItemList.Emitter_UV.get(1L),
+                    'f',
+                    "blockAmericium",
+                    'g',
+                    getModItem(DraconicEvolution.ID, "teleporterMKI", 1, 0, missing),
+                    'h',
+                    ItemList.Sensor_UV.get(1L),
+                    'i',
+                    getModItem(DraconicEvolution.ID, "awakenedCore", 1, 0, missing));
+        }
+        if (EIOML) {
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "draconiumFluxCapacitor", 1, 0, missing),
+                    "---------",
+                    "----a----",
+                    "--abcba--",
+                    "--badab--",
+                    "-acdedca-",
+                    "--badab--",
+                    "--abcba--",
+                    "----a----",
+                    "---------",
+                    'a',
+                    "plateDraconium",
+                    'b',
+                    "wireGt02Superconductor",
+                    'c',
+                    getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
+                    'd',
+                    createItemStack(EnderIO.ID, "blockCapBank", 1, 3, "{type:\"VIBRANT\",storedEnergyRF:0}", missing),
+                    'e',
+                    getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing));
+        }
+        if (BMML) {
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "wyvernSword", 1, 0, missing),
+                    "-------aa",
+                    "------aba",
+                    "-----aca-",
+                    "----ada--",
+                    "-e-ada---",
+                    "--efa----",
+                    "--ce-----",
+                    "-c--e----",
+                    "c--------",
+                    'a',
+                    "plateDraconium",
+                    'b',
+                    getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
+                    'c',
+                    "ingotDraconium",
+                    'd',
+                    getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing),
+                    'e',
+                    "ingotNeutronium",
+                    'f',
+                    getModItem(BloodMagic.ID, "energySword", 1, 0, missing));
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "wyvernPickaxe", 1, 0, missing),
+                    "-aaabaaa-",
+                    "accdedcca",
+                    "aa--f--aa",
+                    "----f----",
+                    "----f----",
+                    "----f----",
+                    "----f----",
+                    "----f----",
+                    "----f----",
+                    'a',
+                    "plateDraconium",
+                    'b',
+                    getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
+                    'c',
+                    "ingotDraconium",
+                    'd',
+                    getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing),
+                    'e',
+                    getModItem(BloodMagic.ID, "boundPickaxe", 1, 0, missing),
+                    'f',
+                    "ingotNeutronium");
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "wyvernShovel", 1, 0, missing),
+                    "------aab",
+                    "-----acda",
+                    "------aca",
+                    "-----e-a-",
+                    "----e----",
+                    "---e-----",
+                    "--e------",
+                    "-e-------",
+                    "e--------",
+                    'a',
+                    "plateDraconium",
+                    'b',
+                    getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
+                    'c',
+                    getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing),
+                    'd',
+                    getModItem(BloodMagic.ID, "boundShovel", 1, 0, missing),
+                    'e',
+                    "ingotNeutronium");
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "wyvernBow", 1, 0, missing),
+                    "---ab----",
+                    "--a-c----",
+                    "-a--c----",
+                    "a---c----",
+                    "d---e----",
+                    "a---c----",
+                    "-a--c----",
+                    "--a-c----",
+                    "---ab----",
+                    'a',
+                    "plateDraconium",
+                    'b',
+                    getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing),
+                    'c',
+                    "ingotNeutronium",
+                    'd',
+                    getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
+                    'e',
+                    getModItem(BloodArsenal.ID, "bound_bow", 1, 0, missing));
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "wyvernHelm", 1, 0, missing),
+                    "--aaaaa--",
+                    "-abbcbba-",
+                    "-a-ded-a-",
+                    "-abbbbba-",
+                    "-abbbbba-",
+                    "-ab---ba-",
+                    "---------",
+                    "---------",
+                    "---------",
+                    'a',
+                    "plateNeutronium",
+                    'b',
+                    "plateDraconium",
+                    'c',
+                    getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
+                    'd',
+                    getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing),
+                    'e',
+                    getModItem(BloodMagic.ID, "sanguineHelmet", 1, 0, missing));
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "wyvernChest", 1, 0, missing),
+                    "-aa---aa-",
+                    "aaa---aaa",
+                    "aaa---aaa",
+                    "-abbbbba-",
+                    "-abbcbba-",
+                    "-abdedba-",
+                    "-abbbbba-",
+                    "-abbbbba-",
+                    "--aaaaa--",
+                    'a',
+                    "plateNeutronium",
+                    'b',
+                    "plateDraconium",
+                    'c',
+                    getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
+                    'd',
+                    getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing),
+                    'e',
+                    getModItem(BloodMagic.ID, "sanguineRobe", 1, 0, missing));
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "wyvernLeggs", 1, 0, missing),
+                    "aaaaaaaaa",
+                    "abbbcbbba",
+                    "abaadaaba",
+                    "aba---aba",
+                    "aea---aea",
+                    "aba---aba",
+                    "aba---aba",
+                    "aba---aba",
+                    "aaa---aaa",
+                    'a',
+                    "plateNeutronium",
+                    'b',
+                    "plateDraconium",
+                    'c',
+                    getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
+                    'd',
+                    getModItem(BloodMagic.ID, "sanguinePants", 1, 0, missing),
+                    'e',
+                    getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing));
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "wyvernBoots", 1, 0, missing),
+                    "-aaabaaa-",
+                    "-acadaca-",
+                    "-aca-aca-",
+                    "-aca-aca-",
+                    "aeca-acea",
+                    "aaaa-aaaa",
+                    "---------",
+                    "---------",
+                    "---------",
+                    'a',
+                    "plateNeutronium",
+                    'b',
+                    getModItem(BloodMagic.ID, "sanguineBoots", 1, 0, missing),
+                    'c',
+                    "plateDraconium",
+                    'd',
+                    getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
+                    'e',
+                    getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing));
+        }
         ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
                 getModItem(DraconicEvolution.ID, "draconiumFluxCapacitor", 1, 1, missing),
                 "---------",
@@ -557,48 +547,52 @@ public class ScriptDraconicEvolution implements IScriptLoader {
                 getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 1, missing),
                 'e',
                 getModItem(DraconicEvolution.ID, "awakenedCore", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "draconicAxe", 1, 0, missing),
-                "-a-------",
-                "abaaa----",
-                "acdc-----",
-                "-ae------",
-                "--e------",
-                "--e------",
-                "--e------",
-                "--e------",
-                "--e------",
-                'a',
-                "plateDraconiumAwakened",
-                'b',
-                getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 1, missing),
-                'c',
-                getModItem(DraconicEvolution.ID, "awakenedCore", 1, 0, missing),
-                'd',
-                getModItem(BloodMagic.ID, "boundAxe", 1, 0, missing),
-                'e',
-                "ingotDraconium");
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "draconicHoe", 1, 0, missing),
-                "-aaaa----",
-                "b--aaa---",
-                "----aaac-",
-                "-----dea-",
-                "-----cda-",
-                "----c----",
-                "---c-----",
-                "--c------",
-                "-c-------",
-                'a',
-                "plateDraconiumAwakened",
-                'b',
-                getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 1, missing),
-                'c',
-                "ingotDraconium",
-                'd',
-                getModItem(DraconicEvolution.ID, "awakenedCore", 1, 0, missing),
-                'e',
-                getModItem(BloodArsenal.ID, "bound_sickle", 1, 0, missing));
+        if (BMML) {
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "draconicAxe", 1, 0, missing),
+                    "-a-------",
+                    "abaaa----",
+                    "acdc-----",
+                    "-ae------",
+                    "--e------",
+                    "--e------",
+                    "--e------",
+                    "--e------",
+                    "--e------",
+                    'a',
+                    "plateDraconiumAwakened",
+                    'b',
+                    getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 1, missing),
+                    'c',
+                    getModItem(DraconicEvolution.ID, "awakenedCore", 1, 0, missing),
+                    'd',
+                    getModItem(BloodMagic.ID, "boundAxe", 1, 0, missing),
+                    'e',
+                    "ingotDraconium");
+        }
+        if (BAML) {
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "draconicHoe", 1, 0, missing),
+                    "-aaaa----",
+                    "b--aaa---",
+                    "----aaac-",
+                    "-----dea-",
+                    "-----cda-",
+                    "----c----",
+                    "---c-----",
+                    "--c------",
+                    "-c-------",
+                    'a',
+                    "plateDraconiumAwakened",
+                    'b',
+                    getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 1, missing),
+                    'c',
+                    "ingotDraconium",
+                    'd',
+                    getModItem(DraconicEvolution.ID, "awakenedCore", 1, 0, missing),
+                    'e',
+                    getModItem(BloodArsenal.ID, "bound_sickle", 1, 0, missing));
+        }
         ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
                 getModItem(DraconicEvolution.ID, "draconicDistructionStaff", 1, 0, missing),
                 "---aba---",
@@ -668,23 +662,25 @@ public class ScriptDraconicEvolution implements IScriptLoader {
                 "itemVibrantCrystal",
                 'd',
                 getModItem(Minecraft.ID, "comparator", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "magnet", 1, 1, missing),
-                "---------",
-                "---------",
-                "-abbbbb--",
-                "------b--",
-                "------b--",
-                "------b--",
-                "-cbbbbb--",
-                "---------",
-                "---------",
-                'a',
-                getModItem(DraconicEvolution.ID, "magnet", 1, 0, missing),
-                'b',
-                "ingotNeodymiumMagnetic",
-                'c',
-                getModItem(EnderIO.ID, "itemMagnet", 1, 0, missing));
+        if (EIOML) {
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "magnet", 1, 1, missing),
+                    "---------",
+                    "---------",
+                    "-abbbbb--",
+                    "------b--",
+                    "------b--",
+                    "------b--",
+                    "-cbbbbb--",
+                    "---------",
+                    "---------",
+                    'a',
+                    getModItem(DraconicEvolution.ID, "magnet", 1, 0, missing),
+                    'b',
+                    "ingotNeodymiumMagnetic",
+                    'c',
+                    getModItem(EnderIO.ID, "itemMagnet", 1, 0, missing));
+        }
         ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
                 getModItem(DraconicEvolution.ID, "reactorCraftingPart", 1, 1, missing),
                 "---------",
@@ -994,29 +990,31 @@ public class ScriptDraconicEvolution implements IScriptLoader {
                 "stickBlaze",
                 'd',
                 getModItem(DraconicEvolution.ID, "draconicCore", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "generator", 1, 3, missing),
-                "---------",
-                "---------",
-                "--abbba--",
-                "--bcdcb--",
-                "--befeb--",
-                "--abbba--",
-                "---------",
-                "---------",
-                "---------",
-                'a',
-                "plateSteel",
-                'b',
-                "ingotBrickNether",
-                'c',
-                ItemList.Battery_Hull_LV.get(1L),
-                'd',
-                getModItem(DraconicEvolution.ID, "draconicCore", 1, 0, missing),
-                'e',
-                getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipepowercobblestone", 1, 0, missing),
-                'f',
-                "craftingIronFurnace");
+        if (BCML) {
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "generator", 1, 3, missing),
+                    "---------",
+                    "---------",
+                    "--abbba--",
+                    "--bcdcb--",
+                    "--befeb--",
+                    "--abbba--",
+                    "---------",
+                    "---------",
+                    "---------",
+                    'a',
+                    "plateSteel",
+                    'b',
+                    "ingotBrickNether",
+                    'c',
+                    ItemList.Battery_Hull_LV.get(1L),
+                    'd',
+                    getModItem(DraconicEvolution.ID, "draconicCore", 1, 0, missing),
+                    'e',
+                    getModItem(BuildCraftTransport.ID, "item.buildcraftPipe.pipepowercobblestone", 1, 0, missing),
+                    'f',
+                    "craftingIronFurnace");
+        }
         ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
                 getModItem(DraconicEvolution.ID, "playerDetectorAdvanced", 1, 0, missing),
                 "---------",
@@ -1038,33 +1036,35 @@ public class ScriptDraconicEvolution implements IScriptLoader {
                 getModItem(Minecraft.ID, "skull", 1, 1, missing),
                 'e',
                 getModItem(DraconicEvolution.ID, "playerDetector", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "weatherController", 1, 0, missing),
-                "---------",
-                "---------",
-                "--abcda--",
-                "--aefea--",
-                "--aghga--",
-                "--aaaaa--",
-                "---------",
-                "---------",
-                "---------",
-                'a',
-                "plateDraconium",
-                'b',
-                getModItem(DraconicEvolution.ID, "rainSensor", 1, 0, missing),
-                'c',
-                getModItem(OpenBlocks.ID, "bigbutton", 1, 0, missing),
-                'd',
-                getModItem(Minecraft.ID, "daylight_detector", 1, 0, missing),
-                'e',
-                getModItem(DraconicEvolution.ID, "draconicCore", 1, 0, missing),
-                'f',
-                getModItem(Forestry.ID, "factory", 1, 7, missing),
-                'g',
-                "stickBlaze",
-                'h',
-                "gemExquisiteEmerald");
+        if (FML && OML) {
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "weatherController", 1, 0, missing),
+                    "---------",
+                    "---------",
+                    "--abcda--",
+                    "--aefea--",
+                    "--aghga--",
+                    "--aaaaa--",
+                    "---------",
+                    "---------",
+                    "---------",
+                    'a',
+                    "plateDraconium",
+                    'b',
+                    getModItem(DraconicEvolution.ID, "rainSensor", 1, 0, missing),
+                    'c',
+                    getModItem(OpenBlocks.ID, "bigbutton", 1, 0, missing),
+                    'd',
+                    getModItem(Minecraft.ID, "daylight_detector", 1, 0, missing),
+                    'e',
+                    getModItem(DraconicEvolution.ID, "draconicCore", 1, 0, missing),
+                    'f',
+                    getModItem(Forestry.ID, "factory", 1, 7, missing),
+                    'g',
+                    "stickBlaze",
+                    'h',
+                    "gemExquisiteEmerald");
+        }
         ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
                 getModItem(DraconicEvolution.ID, "sunDial", 1, 0, missing),
                 "---------",
@@ -1092,69 +1092,75 @@ public class ScriptDraconicEvolution implements IScriptLoader {
                 getModItem(DraconicEvolution.ID, "awakenedCore", 1, 0, missing),
                 'h',
                 getModItem(DraconicEvolution.ID, "weatherController", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "grinder", 1, 3, missing),
-                "---------",
-                "---------",
-                "--aaaaa--",
-                "--abcba--",
-                "--adeda--",
-                "--aaaaa--",
-                "---------",
-                "---------",
-                "---------",
-                'a',
-                "plateDraconium",
-                'b',
-                getModItem(Thaumcraft.ID, "ItemSwordElemental", 1, 0, missing),
-                'c',
-                getModItem(EnderIO.ID, "blockKillerJoe", 1, 0, missing),
-                'd',
-                ItemList.Electric_Motor_IV.get(1L),
-                'e',
-                getModItem(EnderIO.ID, "blockCapBank", 1, 3, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "flowGate", 1, 6, missing),
-                "---------",
-                "---------",
-                "--aaaaa--",
-                "--aabaa--",
-                "--cdedc--",
-                "--aabaa--",
-                "--aaaaa--",
-                "---------",
-                "---------",
-                'a',
-                "plateDraconium",
-                'b',
-                getModItem(DraconicEvolution.ID, "draconicCore", 1, 0, missing),
-                'c',
-                "pipeHugeNeutronium",
-                'd',
-                getModItem(ProjectRedIntegration.ID, "projectred.integration.gate", 1, 26, missing),
-                'e',
-                getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing));
-        ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
-                getModItem(DraconicEvolution.ID, "flowGate", 1, 0, missing),
-                "---------",
-                "---------",
-                "--aaaaa--",
-                "--aabaa--",
-                "--cdedc--",
-                "--aabaa--",
-                "--aaaaa--",
-                "---------",
-                "---------",
-                'a',
-                "plateDraconium",
-                'b',
-                getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
-                'c',
-                getModItem(EnderIO.ID, "itemPowerConduit", 1, 2, missing),
-                'd',
-                getModItem(ProjectRedIntegration.ID, "projectred.integration.gate", 1, 26, missing),
-                'e',
-                getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing));
+        if (EIOML && TML) {
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "grinder", 1, 3, missing),
+                    "---------",
+                    "---------",
+                    "--aaaaa--",
+                    "--abcba--",
+                    "--adeda--",
+                    "--aaaaa--",
+                    "---------",
+                    "---------",
+                    "---------",
+                    'a',
+                    "plateDraconium",
+                    'b',
+                    getModItem(Thaumcraft.ID, "ItemSwordElemental", 1, 0, missing),
+                    'c',
+                    getModItem(EnderIO.ID, "blockKillerJoe", 1, 0, missing),
+                    'd',
+                    ItemList.Electric_Motor_IV.get(1L),
+                    'e',
+                    getModItem(EnderIO.ID, "blockCapBank", 1, 3, missing));
+        }
+        if (PREDML) {
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    getModItem(DraconicEvolution.ID, "flowGate", 1, 6, missing),
+                    "---------",
+                    "---------",
+                    "--aaaaa--",
+                    "--aabaa--",
+                    "--cdedc--",
+                    "--aabaa--",
+                    "--aaaaa--",
+                    "---------",
+                    "---------",
+                    'a',
+                    "plateDraconium",
+                    'b',
+                    getModItem(DraconicEvolution.ID, "draconicCore", 1, 0, missing),
+                    'c',
+                    "pipeHugeNeutronium",
+                    'd',
+                    getModItem(ProjectRedIntegration.ID, "projectred.integration.gate", 1, 26, missing),
+                    'e',
+                    getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing));
+            if (EIOML) {
+                ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                        getModItem(DraconicEvolution.ID, "flowGate", 1, 0, missing),
+                        "---------",
+                        "---------",
+                        "--aaaaa--",
+                        "--aabaa--",
+                        "--cdedc--",
+                        "--aabaa--",
+                        "--aaaaa--",
+                        "---------",
+                        "---------",
+                        'a',
+                        "plateDraconium",
+                        'b',
+                        getModItem(DraconicEvolution.ID, "draconiumEnergyCore", 1, 0, missing),
+                        'c',
+                        getModItem(EnderIO.ID, "itemPowerConduit", 1, 2, missing),
+                        'd',
+                        getModItem(ProjectRedIntegration.ID, "projectred.integration.gate", 1, 26, missing),
+                        'e',
+                        getModItem(DraconicEvolution.ID, "wyvernCore", 1, 0, missing));
+            }
+        }
         ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
                 getModItem(DraconicEvolution.ID, "reactorEnergyInjector", 1, 0, missing),
                 "---------",
@@ -1224,35 +1230,41 @@ public class ScriptDraconicEvolution implements IScriptLoader {
                         getModItem(Minecraft.ID, "ender_pearl", 1, 0, missing))
                 .itemOutputs(getModItem(DraconicEvolution.ID, "enderArrow", 1, 0, missing)).duration(10 * SECONDS)
                 .eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(Railcraft.ID, "detector", 1, 5, missing),
-                        getModItem(DraconicEvolution.ID, "draconicCore", 1, 0, missing))
-                .itemOutputs(getModItem(DraconicEvolution.ID, "playerDetector", 1, 0, missing)).duration(10 * SECONDS)
-                .eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(ProjectRedIntegration.ID, "projectred.integration.gate", 1, 16, missing),
-                        GTOreDictUnificator.get(OrePrefixes.plate, Materials.Draconium, 1L))
-                .itemOutputs(getModItem(DraconicEvolution.ID, "rainSensor", 1, 0, missing)).duration(10 * SECONDS)
-                .eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(Botania.ID, "tinyPlanetBlock", 1, 0),
-                        getModItem(ExtraUtilities.ID, "greenscreen", 64, 3),
-                        getModItem(ExtraUtilities.ID, "greenscreen", 64, 11),
-                        getModItem(ExtraUtilities.ID, "greenscreen", 64, 13),
-                        getModItem(OpenComputers.ID, "hologram2", 1, 0, missing),
-                        createItemStack(
-                                ExtraUtilities.ID,
-                                "microblocks",
-                                1,
-                                3,
-                                "{mat:\"tile.extrautils:decorativeBlock1_5\"}",
-                                missing))
-                .fluidInputs(new FluidStack(FluidRegistry.getFluid("water"), 10000))
-                .itemOutputs(getModItem(DraconicEvolution.ID, "earth", 1, 0, missing)).duration(6 * SECONDS).eut(200)
-                .addTo(assemblerRecipes);
+        if (RCML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(Railcraft.ID, "detector", 1, 5, missing),
+                            getModItem(DraconicEvolution.ID, "draconicCore", 1, 0, missing))
+                    .itemOutputs(getModItem(DraconicEvolution.ID, "playerDetector", 1, 0, missing))
+                    .duration(10 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
+        }
+        if (PREDML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(ProjectRedIntegration.ID, "projectred.integration.gate", 1, 16, missing),
+                            GTOreDictUnificator.get(OrePrefixes.plate, Materials.Draconium, 1L))
+                    .itemOutputs(getModItem(DraconicEvolution.ID, "rainSensor", 1, 0, missing)).duration(10 * SECONDS)
+                    .eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
+        }
+        if (BML && XUML && OCML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(Botania.ID, "tinyPlanetBlock", 1, 0),
+                            getModItem(ExtraUtilities.ID, "greenscreen", 64, 3),
+                            getModItem(ExtraUtilities.ID, "greenscreen", 64, 11),
+                            getModItem(ExtraUtilities.ID, "greenscreen", 64, 13),
+                            getModItem(OpenComputers.ID, "hologram2", 1, 0, missing),
+                            createItemStack(
+                                    ExtraUtilities.ID,
+                                    "microblocks",
+                                    1,
+                                    3,
+                                    "{mat:\"tile.extrautils:decorativeBlock1_5\"}",
+                                    missing))
+                    .fluidInputs(new FluidStack(FluidRegistry.getFluid("water"), 10000))
+                    .itemOutputs(getModItem(DraconicEvolution.ID, "earth", 1, 0, missing)).duration(6 * SECONDS)
+                    .eut(200).addTo(assemblerRecipes);
+        }
         GTValues.RA.stdBuilder()
                 .itemInputs(
                         getModItem(Minecraft.ID, "obsidian", 1, 0, missing),
@@ -1275,14 +1287,14 @@ public class ScriptDraconicEvolution implements IScriptLoader {
                         GTOreDictUnificator.get(OrePrefixes.plateDouble, Materials.Paper, 1L))
                 .itemOutputs(getModItem(DraconicEvolution.ID, "safetyMatch", 1, 0, missing))
                 .duration(3 * SECONDS + 4 * TICKS).eut(TierEU.RECIPE_LV / 2).addTo(packagerRecipes);
-
-        GTModHandler.addCraftingRecipe(
-                getModItem(DraconicEvolution.ID, "dislocatorInhibitor", 1, 0, missing),
-                BITS,
-                new Object[] { "PSP", "BMB", "PSP", 'P', "plateSteelMagnetic", 'S',
-                        getModItem(TinkerConstruct.ID, "heavyPlate", 1, 6, missing), 'B',
-                        getModItem(EnderIO.ID, "blockDarkIronBars", 1, 0, missing), 'M',
-                        getModItem(DraconicEvolution.ID, "magnet", 1, 0, missing) });
-
+        if (EIOML && TCML) {
+            GTModHandler.addCraftingRecipe(
+                    getModItem(DraconicEvolution.ID, "dislocatorInhibitor", 1, 0, missing),
+                    BITS,
+                    new Object[] { "PSP", "BMB", "PSP", 'P', "plateSteelMagnetic", 'S',
+                            getModItem(TinkerConstruct.ID, "heavyPlate", 1, 6, missing), 'B',
+                            getModItem(EnderIO.ID, "blockDarkIronBars", 1, 0, missing), 'M',
+                            getModItem(DraconicEvolution.ID, "magnet", 1, 0, missing) });
+        }
     }
 }

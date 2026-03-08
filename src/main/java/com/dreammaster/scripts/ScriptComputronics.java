@@ -22,12 +22,12 @@ public class ScriptComputronics implements IScriptLoader {
 
     @Override
     public List<String> getDependencies() {
-        return Arrays.asList(Avaritia.ID, Computronics.ID, OpenComputers.ID);
+        return Arrays.asList(Computronics.ID, OpenComputers.ID);
     }
 
     @Override
     public void loadRecipes() {
-        if (TML) {
+        if (TML && AML) {
             ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
                     getModItem(Computronics.ID, "computronics.ocSpecialParts", 1),
                     "aaaaaaaaa",

@@ -32,7 +32,7 @@ public class ScriptBackpack implements IScriptLoader {
 
     @Override
     public List<String> getDependencies() {
-        return Arrays.asList(Backpack.ID, ExtraUtilities.ID, PamsHarvestCraft.ID);
+        return Arrays.asList(Backpack.ID);
     }
 
     @Override
@@ -131,22 +131,24 @@ public class ScriptBackpack implements IScriptLoader {
         IDOffsetToDyeMap.put(15, "dyeOrange");
         IDOffsetToDyeMap.put(16, "dyeWhite");
 
-        for (Map.Entry<Integer, String> entry : IDOffsetToDyeMap.entrySet()) {
-            GameRegistry.addRecipe(
-                    new ColoredBackpackRecipe(
-                            getModItem(Backpack.ID, "backpack", 1, entry.getKey(), missing),
-                            "SmallBackpacks",
-                            entry.getValue()));
-            GameRegistry.addRecipe(
-                    new ColoredBackpackRecipe(
-                            getModItem(Backpack.ID, "backpack", 1, 100 + entry.getKey(), missing),
-                            "MediumBackpacks",
-                            entry.getValue()));
-            GameRegistry.addRecipe(
-                    new ColoredBackpackRecipe(
-                            getModItem(Backpack.ID, "backpack", 1, 200 + entry.getKey(), missing),
-                            "BigBackpacks",
-                            entry.getValue()));
+        if (BPML) {
+            for (Map.Entry<Integer, String> entry : IDOffsetToDyeMap.entrySet()) {
+                GameRegistry.addRecipe(
+                        new ColoredBackpackRecipe(
+                                getModItem(Backpack.ID, "backpack", 1, entry.getKey(), missing),
+                                "SmallBackpacks",
+                                entry.getValue()));
+                GameRegistry.addRecipe(
+                        new ColoredBackpackRecipe(
+                                getModItem(Backpack.ID, "backpack", 1, 100 + entry.getKey(), missing),
+                                "MediumBackpacks",
+                                entry.getValue()));
+                GameRegistry.addRecipe(
+                        new ColoredBackpackRecipe(
+                                getModItem(Backpack.ID, "backpack", 1, 200 + entry.getKey(), missing),
+                                "BigBackpacks",
+                                entry.getValue()));
+            }
         }
 
         for (Integer offset : IntStream.rangeClosed(0, 16).toArray()) {
@@ -162,18 +164,20 @@ public class ScriptBackpack implements IScriptLoader {
                             getModItem(Backpack.ID, "tannedLeather", 1, 0, missing),
                             'c',
                             getModItem(Backpack.ID, "backpack", 1, offset, missing)));
-            GameRegistry.addRecipe(
-                    new UpgradeBackpackRecipe(
-                            getModItem(Backpack.ID, "backpack", 1, 200 + offset, missing),
-                            "aba",
-                            "bcb",
-                            "aba",
-                            'a',
-                            "ringTitanium",
-                            'b',
-                            getModItem(PamsHarvestCraft.ID, "hardenedleatherItem", 1, 0, missing),
-                            'c',
-                            getModItem(Backpack.ID, "backpack", 1, 100 + offset, missing)));
+            if (PHML) {
+                GameRegistry.addRecipe(
+                        new UpgradeBackpackRecipe(
+                                getModItem(Backpack.ID, "backpack", 1, 200 + offset, missing),
+                                "aba",
+                                "bcb",
+                                "aba",
+                                'a',
+                                "ringTitanium",
+                                'b',
+                                getModItem(PamsHarvestCraft.ID, "hardenedleatherItem", 1, 0, missing),
+                                'c',
+                                getModItem(Backpack.ID, "backpack", 1, 100 + offset, missing)));
+            }
         }
         addShapedRecipe(
                 getModItem(Backpack.ID, "workbenchbackpack", 1, 17, missing),
@@ -186,17 +190,19 @@ public class ScriptBackpack implements IScriptLoader {
                 getModItem(Backpack.ID, "tannedLeather", 1, 0, missing),
                 getModItem(Minecraft.ID, "crafting_table", 1, 0, missing),
                 getModItem(Backpack.ID, "tannedLeather", 1, 0, missing));
-        addShapedRecipe(
-                getModItem(Backpack.ID, "workbenchbackpack", 1, 217, missing),
-                "ringTitanium",
-                getModItem(PamsHarvestCraft.ID, "hardenedleatherItem", 1, 0, missing),
-                "ringTitanium",
-                getModItem(PamsHarvestCraft.ID, "hardenedleatherItem", 1, 0, missing),
-                getModItem(Backpack.ID, "backpack", 1, 100, missing),
-                getModItem(PamsHarvestCraft.ID, "hardenedleatherItem", 1, 0, missing),
-                "ringTitanium",
-                getModItem(Minecraft.ID, "crafting_table", 1, 0, missing),
-                "ringTitanium");
+        if (PHML) {
+            addShapedRecipe(
+                    getModItem(Backpack.ID, "workbenchbackpack", 1, 217, missing),
+                    "ringTitanium",
+                    getModItem(PamsHarvestCraft.ID, "hardenedleatherItem", 1, 0, missing),
+                    "ringTitanium",
+                    getModItem(PamsHarvestCraft.ID, "hardenedleatherItem", 1, 0, missing),
+                    getModItem(Backpack.ID, "backpack", 1, 100, missing),
+                    getModItem(PamsHarvestCraft.ID, "hardenedleatherItem", 1, 0, missing),
+                    "ringTitanium",
+                    getModItem(Minecraft.ID, "crafting_table", 1, 0, missing),
+                    "ringTitanium");
+        }
 
         if (TCML) {
             DryingRackRecipes.addDryingRecipe(

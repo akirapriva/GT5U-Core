@@ -1,5 +1,6 @@
 package com.dreammaster.scripts;
 
+import static com.dreammaster.scripts.BooleanModLoaded.*;
 import static gregtech.api.enums.Mods.Backpack;
 import static gregtech.api.enums.Mods.MineAndBladeBattleGear2;
 import static gregtech.api.enums.Mods.Minecraft;
@@ -24,7 +25,7 @@ public class ScriptBattleGear implements IScriptLoader {
 
     @Override
     public List<String> getDependencies() {
-        return Arrays.asList(MineAndBladeBattleGear2.ID, Backpack.ID, TinkerConstruct.ID, TinkersGregworks.ID);
+        return Arrays.asList(MineAndBladeBattleGear2.ID);
     }
 
     @Override
@@ -51,81 +52,103 @@ public class ScriptBattleGear implements IScriptLoader {
                 "itemFlint",
                 "itemLeather",
                 "itemFlint");
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "shield.iron", 1, 0, missing),
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 2, missing),
-                getModItem(TinkerConstruct.ID, "toughBinding", 1, 2, missing),
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 2, missing),
-                "craftingToolHardHammer",
-                getModItem(TinkerConstruct.ID, "toughRod", 1, 2, missing),
-                "craftingToolFile",
-                null,
-                getModItem(TinkerConstruct.ID, "toughRod", 1, 2, missing),
-                null);
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "shield.gold", 1, 0, missing),
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartLargePlate",
-                        1,
-                        1505,
-                        "{material:\"Gold\"}",
-                        missing),
-                createItemStack(TinkersGregworks.ID, "tGregToolPartToughBind", 1, 1505, "{material:\"Gold\"}", missing),
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartLargePlate",
-                        1,
-                        1505,
-                        "{material:\"Gold\"}",
-                        missing),
-                "craftingToolHardHammer",
-                createItemStack(TinkersGregworks.ID, "tGregToolPartToughRod", 1, 1505, "{material:\"Gold\"}", missing),
-                "craftingToolFile",
-                null,
-                createItemStack(TinkersGregworks.ID, "tGregToolPartToughRod", 1, 1505, "{material:\"Gold\"}", missing),
-                null);
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "shield.diamond", 1, 0, missing),
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartLargePlate",
-                        1,
-                        1594,
-                        "{material:\"Diamond\"}",
-                        missing),
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartToughBind",
-                        1,
-                        1594,
-                        "{material:\"Diamond\"}",
-                        missing),
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartLargePlate",
-                        1,
-                        1594,
-                        "{material:\"Diamond\"}",
-                        missing),
-                "craftingToolHardHammer",
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartToughRod",
-                        1,
-                        1594,
-                        "{material:\"Diamond\"}",
-                        missing),
-                "craftingToolFile",
-                null,
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartToughRod",
-                        1,
-                        1594,
-                        "{material:\"Diamond\"}",
-                        missing),
-                null);
+        if (TCML) {
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "shield.iron", 1, 0, missing),
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 2, missing),
+                    getModItem(TinkerConstruct.ID, "toughBinding", 1, 2, missing),
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 2, missing),
+                    "craftingToolHardHammer",
+                    getModItem(TinkerConstruct.ID, "toughRod", 1, 2, missing),
+                    "craftingToolFile",
+                    null,
+                    getModItem(TinkerConstruct.ID, "toughRod", 1, 2, missing),
+                    null);
+        }
+        if (TGML) {
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "shield.gold", 1, 0, missing),
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartLargePlate",
+                            1,
+                            1505,
+                            "{material:\"Gold\"}",
+                            missing),
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartToughBind",
+                            1,
+                            1505,
+                            "{material:\"Gold\"}",
+                            missing),
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartLargePlate",
+                            1,
+                            1505,
+                            "{material:\"Gold\"}",
+                            missing),
+                    "craftingToolHardHammer",
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartToughRod",
+                            1,
+                            1505,
+                            "{material:\"Gold\"}",
+                            missing),
+                    "craftingToolFile",
+                    null,
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartToughRod",
+                            1,
+                            1505,
+                            "{material:\"Gold\"}",
+                            missing),
+                    null);
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "shield.diamond", 1, 0, missing),
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartLargePlate",
+                            1,
+                            1594,
+                            "{material:\"Diamond\"}",
+                            missing),
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartToughBind",
+                            1,
+                            1594,
+                            "{material:\"Diamond\"}",
+                            missing),
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartLargePlate",
+                            1,
+                            1594,
+                            "{material:\"Diamond\"}",
+                            missing),
+                    "craftingToolHardHammer",
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartToughRod",
+                            1,
+                            1594,
+                            "{material:\"Diamond\"}",
+                            missing),
+                    "craftingToolFile",
+                    null,
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartToughRod",
+                            1,
+                            1594,
+                            "{material:\"Diamond\"}",
+                            missing),
+                    null);
+        }
         addShapedRecipe(
                 getModItem(MineAndBladeBattleGear2.ID, "dagger.wood", 1, 0, missing),
                 GTOreDictUnificator.get(OrePrefixes.plate, Materials.Wood, 1L),
@@ -169,225 +192,269 @@ public class ScriptBattleGear implements IScriptLoader {
                 "stickWood",
                 getModItem(Minecraft.ID, "string", 1, 0, missing),
                 null);
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "spear.stone", 1, 0, missing),
-                "screwAnyIron",
-                getModItem(TinkerConstruct.ID, "arrowhead", 1, 1, missing),
-                null,
-                getModItem(MineAndBladeBattleGear2.ID, "spear.wood", 1, 0, missing),
-                "screwAnyIron",
-                null,
-                "craftingToolSaw",
-                "craftingToolScrewdriver",
-                null);
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "spear.iron", 1, 0, missing),
-                "screwSteel",
-                getModItem(TinkerConstruct.ID, "arrowhead", 1, 2, missing),
-                null,
-                getModItem(MineAndBladeBattleGear2.ID, "spear.wood", 1, 0, missing),
-                "screwSteel",
-                null,
-                "craftingToolSaw",
-                "craftingToolScrewdriver",
-                null);
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "spear.gold", 1, 0, missing),
-                "screwAluminium",
-                createItemStack(TinkersGregworks.ID, "tGregToolPartArrowHead", 1, 1505, "{material:\"Gold\"}", missing),
-                null,
-                getModItem(MineAndBladeBattleGear2.ID, "spear.wood", 1, 0, missing),
-                "screwAluminium",
-                null,
-                "craftingToolSaw",
-                "craftingToolScrewdriver",
-                null);
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "spear.diamond", 1, 0, missing),
-                "screwStainlessSteel",
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartArrowHead",
-                        1,
-                        1594,
-                        "{material:\"Diamond\"}",
-                        missing),
-                null,
-                getModItem(MineAndBladeBattleGear2.ID, "spear.wood", 1, 0, missing),
-                "screwStainlessSteel",
-                null,
-                "craftingToolSaw",
-                "craftingToolScrewdriver",
-                null);
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "waraxe.wood", 1, 0, missing),
-                getModItem(TinkerConstruct.ID, "hatchetHead", 1, 0, missing),
-                ToolDictNames.craftingToolSoftMallet.name(),
-                getModItem(TinkerConstruct.ID, "hatchetHead", 1, 0, missing),
-                getModItem(TinkerConstruct.ID, "hatchetHead", 1, 0, missing),
-                "stickWood",
-                getModItem(TinkerConstruct.ID, "hatchetHead", 1, 0, missing),
-                null,
-                "stickWood",
-                null);
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "waraxe.stone", 1, 0, missing),
-                getModItem(TinkerConstruct.ID, "hatchetHead", 1, 1, missing),
-                "craftingToolScrewdriver",
-                getModItem(TinkerConstruct.ID, "hatchetHead", 1, 1, missing),
-                getModItem(TinkerConstruct.ID, "hatchetHead", 1, 1, missing),
-                "stickWood",
-                getModItem(TinkerConstruct.ID, "hatchetHead", 1, 1, missing),
-                "screwAnyIron",
-                "stickWood",
-                "screwAnyIron");
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "waraxe.iron", 1, 0, missing),
-                getModItem(TinkerConstruct.ID, "hatchetHead", 1, 2, missing),
-                "craftingToolScrewdriver",
-                getModItem(TinkerConstruct.ID, "hatchetHead", 1, 2, missing),
-                getModItem(TinkerConstruct.ID, "hatchetHead", 1, 2, missing),
-                "stickWood",
-                getModItem(TinkerConstruct.ID, "hatchetHead", 1, 2, missing),
-                "screwSteel",
-                "stickWood",
-                "screwSteel");
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "waraxe.gold", 1, 0, missing),
-                createItemStack(TinkersGregworks.ID, "tGregToolPartAxeHead", 1, 1505, "{material:\"Gold\"}", missing),
-                "craftingToolScrewdriver",
-                createItemStack(TinkersGregworks.ID, "tGregToolPartAxeHead", 1, 1505, "{material:\"Gold\"}", missing),
-                createItemStack(TinkersGregworks.ID, "tGregToolPartAxeHead", 1, 1505, "{material:\"Gold\"}", missing),
-                "stickWood",
-                createItemStack(TinkersGregworks.ID, "tGregToolPartAxeHead", 1, 1505, "{material:\"Gold\"}", missing),
-                "screwAluminium",
-                "stickWood",
-                "screwAluminium");
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "waraxe.diamond", 1, 0, missing),
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartAxeHead",
-                        1,
-                        1594,
-                        "{material:\"Diamond\"}",
-                        missing),
-                "craftingToolScrewdriver",
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartAxeHead",
-                        1,
-                        1594,
-                        "{material:\"Diamond\"}",
-                        missing),
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartAxeHead",
-                        1,
-                        1594,
-                        "{material:\"Diamond\"}",
-                        missing),
-                "stickWood",
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartAxeHead",
-                        1,
-                        1594,
-                        "{material:\"Diamond\"}",
-                        missing),
-                "screwStainlessSteel",
-                "stickWood",
-                "screwStainlessSteel");
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "mace.wood", 1, 0, missing),
-                null,
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 0, missing),
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 0, missing),
-                null,
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 0, missing),
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 0, missing),
-                "stickWood",
-                ToolDictNames.craftingToolSoftMallet.name(),
-                null);
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "mace.stone", 1, 0, missing),
-                "screwAnyIron",
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 1, missing),
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 1, missing),
-                "screwAnyIron",
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 1, missing),
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 1, missing),
-                "stickWood",
-                "craftingToolHardHammer",
-                "craftingToolScrewdriver");
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "mace.iron", 1, 0, missing),
-                "screwSteel",
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 2, missing),
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 0, missing),
-                "screwSteel",
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 0, missing),
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 2, missing),
-                "stickWood",
-                "craftingToolHardHammer",
-                "craftingToolScrewdriver");
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "mace.gold", 1, 0, missing),
-                "screwAluminium",
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartLargePlate",
-                        1,
-                        1505,
-                        "{material:\"Gold\"}",
-                        missing),
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 1, missing),
-                "screwAluminium",
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 1, missing),
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartLargePlate",
-                        1,
-                        1505,
-                        "{material:\"Gold\"}",
-                        missing),
-                "stickWood",
-                "craftingToolHardHammer",
-                "craftingToolScrewdriver");
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "mace.diamond", 1, 0, missing),
-                "screwStainlessSteel",
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartLargePlate",
-                        1,
-                        1594,
-                        "{material:\"Diamond\"}",
-                        missing),
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 2, missing),
-                "screwStainlessSteel",
-                getModItem(TinkerConstruct.ID, "heavyPlate", 1, 2, missing),
-                createItemStack(
-                        TinkersGregworks.ID,
-                        "tGregToolPartLargePlate",
-                        1,
-                        1594,
-                        "{material:\"Diamond\"}",
-                        missing),
-                "stickWood",
-                "craftingToolHardHammer",
-                "craftingToolScrewdriver");
-        addShapedRecipe(
-                getModItem(MineAndBladeBattleGear2.ID, "quiver", 1, 0, missing),
-                "itemLeather",
-                "ringAnyIron",
-                "itemLeather",
-                "itemLeather",
-                getModItem(Minecraft.ID, "string", 1, 0, missing),
-                "itemLeather",
-                getModItem(Backpack.ID, "tannedLeather", 1, 0, missing),
-                "itemLeather",
-                getModItem(Backpack.ID, "tannedLeather", 1, 0, missing));
+        if (TCML) {
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "spear.stone", 1, 0, missing),
+                    "screwAnyIron",
+                    getModItem(TinkerConstruct.ID, "arrowhead", 1, 1, missing),
+                    null,
+                    getModItem(MineAndBladeBattleGear2.ID, "spear.wood", 1, 0, missing),
+                    "screwAnyIron",
+                    null,
+                    "craftingToolSaw",
+                    "craftingToolScrewdriver",
+                    null);
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "spear.iron", 1, 0, missing),
+                    "screwSteel",
+                    getModItem(TinkerConstruct.ID, "arrowhead", 1, 2, missing),
+                    null,
+                    getModItem(MineAndBladeBattleGear2.ID, "spear.wood", 1, 0, missing),
+                    "screwSteel",
+                    null,
+                    "craftingToolSaw",
+                    "craftingToolScrewdriver",
+                    null);
+        }
+        if (TGML) {
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "spear.gold", 1, 0, missing),
+                    "screwAluminium",
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartArrowHead",
+                            1,
+                            1505,
+                            "{material:\"Gold\"}",
+                            missing),
+                    null,
+                    getModItem(MineAndBladeBattleGear2.ID, "spear.wood", 1, 0, missing),
+                    "screwAluminium",
+                    null,
+                    "craftingToolSaw",
+                    "craftingToolScrewdriver",
+                    null);
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "spear.diamond", 1, 0, missing),
+                    "screwStainlessSteel",
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartArrowHead",
+                            1,
+                            1594,
+                            "{material:\"Diamond\"}",
+                            missing),
+                    null,
+                    getModItem(MineAndBladeBattleGear2.ID, "spear.wood", 1, 0, missing),
+                    "screwStainlessSteel",
+                    null,
+                    "craftingToolSaw",
+                    "craftingToolScrewdriver",
+                    null);
+        }
+        if (TCML) {
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "waraxe.wood", 1, 0, missing),
+                    getModItem(TinkerConstruct.ID, "hatchetHead", 1, 0, missing),
+                    ToolDictNames.craftingToolSoftMallet.name(),
+                    getModItem(TinkerConstruct.ID, "hatchetHead", 1, 0, missing),
+                    getModItem(TinkerConstruct.ID, "hatchetHead", 1, 0, missing),
+                    "stickWood",
+                    getModItem(TinkerConstruct.ID, "hatchetHead", 1, 0, missing),
+                    null,
+                    "stickWood",
+                    null);
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "waraxe.stone", 1, 0, missing),
+                    getModItem(TinkerConstruct.ID, "hatchetHead", 1, 1, missing),
+                    "craftingToolScrewdriver",
+                    getModItem(TinkerConstruct.ID, "hatchetHead", 1, 1, missing),
+                    getModItem(TinkerConstruct.ID, "hatchetHead", 1, 1, missing),
+                    "stickWood",
+                    getModItem(TinkerConstruct.ID, "hatchetHead", 1, 1, missing),
+                    "screwAnyIron",
+                    "stickWood",
+                    "screwAnyIron");
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "waraxe.iron", 1, 0, missing),
+                    getModItem(TinkerConstruct.ID, "hatchetHead", 1, 2, missing),
+                    "craftingToolScrewdriver",
+                    getModItem(TinkerConstruct.ID, "hatchetHead", 1, 2, missing),
+                    getModItem(TinkerConstruct.ID, "hatchetHead", 1, 2, missing),
+                    "stickWood",
+                    getModItem(TinkerConstruct.ID, "hatchetHead", 1, 2, missing),
+                    "screwSteel",
+                    "stickWood",
+                    "screwSteel");
+        }
+        if (TGML) {
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "waraxe.gold", 1, 0, missing),
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartAxeHead",
+                            1,
+                            1505,
+                            "{material:\"Gold\"}",
+                            missing),
+                    "craftingToolScrewdriver",
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartAxeHead",
+                            1,
+                            1505,
+                            "{material:\"Gold\"}",
+                            missing),
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartAxeHead",
+                            1,
+                            1505,
+                            "{material:\"Gold\"}",
+                            missing),
+                    "stickWood",
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartAxeHead",
+                            1,
+                            1505,
+                            "{material:\"Gold\"}",
+                            missing),
+                    "screwAluminium",
+                    "stickWood",
+                    "screwAluminium");
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "waraxe.diamond", 1, 0, missing),
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartAxeHead",
+                            1,
+                            1594,
+                            "{material:\"Diamond\"}",
+                            missing),
+                    "craftingToolScrewdriver",
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartAxeHead",
+                            1,
+                            1594,
+                            "{material:\"Diamond\"}",
+                            missing),
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartAxeHead",
+                            1,
+                            1594,
+                            "{material:\"Diamond\"}",
+                            missing),
+                    "stickWood",
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartAxeHead",
+                            1,
+                            1594,
+                            "{material:\"Diamond\"}",
+                            missing),
+                    "screwStainlessSteel",
+                    "stickWood",
+                    "screwStainlessSteel");
+        }
+        if (TCML) {
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "mace.wood", 1, 0, missing),
+                    null,
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 0, missing),
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 0, missing),
+                    null,
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 0, missing),
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 0, missing),
+                    "stickWood",
+                    ToolDictNames.craftingToolSoftMallet.name(),
+                    null);
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "mace.stone", 1, 0, missing),
+                    "screwAnyIron",
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 1, missing),
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 1, missing),
+                    "screwAnyIron",
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 1, missing),
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 1, missing),
+                    "stickWood",
+                    "craftingToolHardHammer",
+                    "craftingToolScrewdriver");
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "mace.iron", 1, 0, missing),
+                    "screwSteel",
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 2, missing),
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 0, missing),
+                    "screwSteel",
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 0, missing),
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 2, missing),
+                    "stickWood",
+                    "craftingToolHardHammer",
+                    "craftingToolScrewdriver");
+        }
+        if (TGML) {
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "mace.gold", 1, 0, missing),
+                    "screwAluminium",
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartLargePlate",
+                            1,
+                            1505,
+                            "{material:\"Gold\"}",
+                            missing),
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 1, missing),
+                    "screwAluminium",
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 1, missing),
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartLargePlate",
+                            1,
+                            1505,
+                            "{material:\"Gold\"}",
+                            missing),
+                    "stickWood",
+                    "craftingToolHardHammer",
+                    "craftingToolScrewdriver");
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "mace.diamond", 1, 0, missing),
+                    "screwStainlessSteel",
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartLargePlate",
+                            1,
+                            1594,
+                            "{material:\"Diamond\"}",
+                            missing),
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 2, missing),
+                    "screwStainlessSteel",
+                    getModItem(TinkerConstruct.ID, "heavyPlate", 1, 2, missing),
+                    createItemStack(
+                            TinkersGregworks.ID,
+                            "tGregToolPartLargePlate",
+                            1,
+                            1594,
+                            "{material:\"Diamond\"}",
+                            missing),
+                    "stickWood",
+                    "craftingToolHardHammer",
+                    "craftingToolScrewdriver");
+        }
+        if (BPML) {
+            addShapedRecipe(
+                    getModItem(MineAndBladeBattleGear2.ID, "quiver", 1, 0, missing),
+                    "itemLeather",
+                    "ringAnyIron",
+                    "itemLeather",
+                    "itemLeather",
+                    getModItem(Minecraft.ID, "string", 1, 0, missing),
+                    "itemLeather",
+                    getModItem(Backpack.ID, "tannedLeather", 1, 0, missing),
+                    "itemLeather",
+                    getModItem(Backpack.ID, "tannedLeather", 1, 0, missing));
+        }
 
     }
 }

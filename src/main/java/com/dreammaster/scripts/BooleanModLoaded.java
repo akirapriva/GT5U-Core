@@ -4,6 +4,7 @@ import static gregtech.api.enums.Mods.*;
 
 public class BooleanModLoaded {
 
+    public static final boolean RML = RemoteIO.isModLoaded();
     public static final boolean EFRML = EtFuturumRequiem.isModLoaded();
     public static final boolean AMAGYML = Automagy.isModLoaded();
     public static final boolean EIOML = EnderIO.isModLoaded();
@@ -23,6 +24,7 @@ public class BooleanModLoaded {
     public static final boolean USML = UniversalSingularities.isModLoaded();
     public static final boolean GSML = GalaxySpace.isModLoaded();
     public static final boolean GCML = GalacticraftCore.isModLoaded();
+    public static final boolean AMML = GalacticraftAmunRa.isModLoaded();
     public static final boolean SML = SleepingBags.isModLoaded();
     public static final boolean BPML = Backpack.isModLoaded();
     public static final boolean PHML = PamsHarvestCraft.isModLoaded();
@@ -51,4 +53,11 @@ public class BooleanModLoaded {
     public static final boolean RTML = RandomThings.isModLoaded();
     public static final boolean GEML = Genetics.isModLoaded();
     public static final boolean PREDML = ProjectRedCore.isModLoaded();
+    public static final boolean BOML = Botany.isModLoaded();
+    public static final boolean CHML = Chisel.isModLoaded();
+    public static final boolean FML = Forestry.isModLoaded();
+    public static final boolean HEEML = HardcoreEnderExpansion.isModLoaded();
+    public static final boolean EXML = ExtraBees.isModLoaded();
+    public static final boolean OML = OpenBlocks.isModLoaded();
+    public static final boolean FMBML = ForgeMicroblocks.isModLoaded();
 }

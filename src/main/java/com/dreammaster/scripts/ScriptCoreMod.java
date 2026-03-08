@@ -63,21 +63,7 @@ public class ScriptCoreMod implements IScriptLoader {
 
     @Override
     public List<String> getDependencies() {
-        return Arrays.asList(
-                AdvancedSolarPanel.ID,
-                AppliedEnergistics2.ID,
-                BuildCraftSilicon.ID,
-                EnderIO.ID,
-                Forestry.ID,
-                GalacticraftCore.ID,
-                GalacticraftMars.ID,
-                GalaxySpace.ID,
-                IndustrialCraft2.ID,
-                OpenBlocks.ID,
-                PamsHarvestCraft.ID,
-                ProjectRedCore.ID,
-                Railcraft.ID,
-                RemoteIO.ID);
+        return Arrays.asList(IndustrialCraft2.ID);
     }
 
     @Override
@@ -261,297 +247,305 @@ public class ScriptCoreMod implements IScriptLoader {
                 null,
                 "craftingToolFile",
                 "craftingToolKnife");
-        addShapedRecipe(
-                getModItem(Minecraft.ID, "coal", 1, 1, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null);
-        addShapedRecipe(
-                getModItem(Minecraft.ID, "redstone", 1, 0, missing),
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                null);
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Glass, 1L),
-                null,
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null,
-                null,
-                null,
-                null,
-                null);
-        addShapedRecipe(
-                getModItem(Minecraft.ID, "string", 1, 0, missing),
-                null,
-                null,
-                null,
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null,
-                null,
-                null);
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Clay, 1L),
-                null,
-                null,
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null,
-                null,
-                null,
-                null);
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Stone, 1L),
-                null,
-                null,
-                null,
-                null,
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null,
-                null);
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dustSmall, Materials.Flint, 1L),
-                null,
-                null,
-                null,
-                null,
-                null,
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null);
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Gypsum, 1L),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null);
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Calcite, 1L),
-                null,
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Sulfur, 1L),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.QuartzSand, 1L),
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Iron, 1L),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null);
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Tin, 1L),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null);
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Nickel, 1L),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Copper, 1L),
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.RubberRaw, 1L),
-                null,
-                null,
-                null,
-                null,
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Obsidian, 1L),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null);
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dustSmall, Materials.Brick, 1L),
-                null,
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.WroughtIron, 1L),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                getModItem(IndustrialCraft2.ID, "itemHarz", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                null);
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dustTiny, Materials.Arsenic, 1L),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Zinc, 1L),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null);
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dustSmall, Materials.Silver, 1L),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dust, Materials.Gold, 1L),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dustTiny, Materials.Gallium, 1L),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                getModItem(Minecraft.ID, "leather", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                null,
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                GTOreDictUnificator.get(OrePrefixes.dustSmall, Materials.CobaltBrass, 1L),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
-                getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
-        addShapedRecipe(
-                NHItemList.RawSDHCAlloy.get(),
-                "screwStainlessSteel",
-                "craftingToolScrewdriver",
-                "screwStainlessSteel",
-                getModItem(GalaxySpace.ID, "item.CompressedDualBronze", 1, 0, missing),
-                getModItem(GalaxySpace.ID, "item.CompressedCoal", 1, 0, missing),
-                getModItem(GalaxySpace.ID, "item.CompressedDualAluminium", 1, 0, missing),
-                "screwStainlessSteel",
-                "craftingToolHardHammer",
-                "screwStainlessSteel");
-        addShapedRecipe(
-                createItemStack(NewHorizonsCoreMod.ID, "OvenGlove", 1, 0, "{Durability:1000}", missing),
-                getModItem(PamsHarvestCraft.ID, "wovencottonItem", 1, 0, missing),
-                "itemLeather",
-                getModItem(PamsHarvestCraft.ID, "wovencottonItem", 1, 0, missing),
-                "itemLeather",
-                getModItem(PamsHarvestCraft.ID, "wovencottonItem", 1, 0, missing),
-                "itemLeather",
-                getModItem(Minecraft.ID, "string", 1, 0, missing),
-                getModItem(Minecraft.ID, "string", 1, 0, missing),
-                getModItem(Minecraft.ID, "string", 1, 0, missing));
+        if (OML) {
+            addShapedRecipe(
+                    getModItem(Minecraft.ID, "coal", 1, 1, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null);
+            addShapedRecipe(
+                    getModItem(Minecraft.ID, "redstone", 1, 0, missing),
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null);
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.Glass, 1L),
+                    null,
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null);
+            addShapedRecipe(
+                    getModItem(Minecraft.ID, "string", 1, 0, missing),
+                    null,
+                    null,
+                    null,
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null,
+                    null,
+                    null);
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.Clay, 1L),
+                    null,
+                    null,
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null,
+                    null,
+                    null,
+                    null);
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.Stone, 1L),
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null,
+                    null);
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dustSmall, Materials.Flint, 1L),
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null);
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.Gypsum, 1L),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null);
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.Calcite, 1L),
+                    null,
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.Sulfur, 1L),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.QuartzSand, 1L),
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.Iron, 1L),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null);
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.Tin, 1L),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null);
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.Nickel, 1L),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.Copper, 1L),
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.RubberRaw, 1L),
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.Obsidian, 1L),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null);
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dustSmall, Materials.Brick, 1L),
+                    null,
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.WroughtIron, 1L),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+            addShapedRecipe(
+                    getModItem(IndustrialCraft2.ID, "itemHarz", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    null);
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dustTiny, Materials.Arsenic, 1L),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.Zinc, 1L),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null);
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dustSmall, Materials.Silver, 1L),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dust, Materials.Gold, 1L),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dustTiny, Materials.Gallium, 1L),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+            addShapedRecipe(
+                    getModItem(Minecraft.ID, "leather", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    null,
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+            addShapedRecipe(
+                    GTOreDictUnificator.get(OrePrefixes.dustSmall, Materials.CobaltBrass, 1L),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing),
+                    getModItem(OpenBlocks.ID, "filledbucket", 1, 0, missing));
+        }
+        if (GSML) {
+            addShapedRecipe(
+                    NHItemList.RawSDHCAlloy.get(),
+                    "screwStainlessSteel",
+                    "craftingToolScrewdriver",
+                    "screwStainlessSteel",
+                    getModItem(GalaxySpace.ID, "item.CompressedDualBronze", 1, 0, missing),
+                    getModItem(GalaxySpace.ID, "item.CompressedCoal", 1, 0, missing),
+                    getModItem(GalaxySpace.ID, "item.CompressedDualAluminium", 1, 0, missing),
+                    "screwStainlessSteel",
+                    "craftingToolHardHammer",
+                    "screwStainlessSteel");
+        }
+        if (PHML) {
+            addShapedRecipe(
+                    createItemStack(NewHorizonsCoreMod.ID, "OvenGlove", 1, 0, "{Durability:1000}", missing),
+                    getModItem(PamsHarvestCraft.ID, "wovencottonItem", 1, 0, missing),
+                    "itemLeather",
+                    getModItem(PamsHarvestCraft.ID, "wovencottonItem", 1, 0, missing),
+                    "itemLeather",
+                    getModItem(PamsHarvestCraft.ID, "wovencottonItem", 1, 0, missing),
+                    "itemLeather",
+                    getModItem(Minecraft.ID, "string", 1, 0, missing),
+                    getModItem(Minecraft.ID, "string", 1, 0, missing),
+                    getModItem(Minecraft.ID, "string", 1, 0, missing));
+        }
         addShapelessRecipe(
                 createItemStack(NewHorizonsCoreMod.ID, "OvenGlove", 1, 0, "{Durability:1000}", missing),
                 new ItemStack(NHItemList.OvenGlove.item, 1, 0),
                 "itemLeather",
                 "itemLeather",
                 "itemLeather");
-        addShapedRecipe(
-                createItemStack(NewHorizonsCoreMod.ID, "OvenGlove", 1, 1, "{Durability:1000}", missing),
-                "itemLeather",
-                getModItem(PamsHarvestCraft.ID, "wovencottonItem", 1, 0, missing),
-                "itemLeather",
-                getModItem(PamsHarvestCraft.ID, "wovencottonItem", 1, 0, missing),
-                "itemLeather",
-                getModItem(PamsHarvestCraft.ID, "wovencottonItem", 1, 0, missing),
-                getModItem(Minecraft.ID, "string", 1, 0, missing),
-                getModItem(Minecraft.ID, "string", 1, 0, missing),
-                getModItem(Minecraft.ID, "string", 1, 0, missing));
+        if (PHML) {
+            addShapedRecipe(
+                    createItemStack(NewHorizonsCoreMod.ID, "OvenGlove", 1, 1, "{Durability:1000}", missing),
+                    "itemLeather",
+                    getModItem(PamsHarvestCraft.ID, "wovencottonItem", 1, 0, missing),
+                    "itemLeather",
+                    getModItem(PamsHarvestCraft.ID, "wovencottonItem", 1, 0, missing),
+                    "itemLeather",
+                    getModItem(PamsHarvestCraft.ID, "wovencottonItem", 1, 0, missing),
+                    getModItem(Minecraft.ID, "string", 1, 0, missing),
+                    getModItem(Minecraft.ID, "string", 1, 0, missing),
+                    getModItem(Minecraft.ID, "string", 1, 0, missing));
+        }
         addShapelessRecipe(
                 createItemStack(NewHorizonsCoreMod.ID, "OvenGlove", 1, 1, "{Durability:1000}", missing),
                 new ItemStack(NHItemList.OvenGlove.item, 1, 1),
@@ -651,21 +645,25 @@ public class ScriptCoreMod implements IScriptLoader {
 
         GTValues.RA.stdBuilder().itemInputs(ItemList.CokeOvenCasing.get(1)).itemOutputs(NHItemList.CokeOvenBrick.get(4))
                 .duration(15 * SECONDS).eut(2).addTo(extractorRecipes);
-        GTValues.RA.stdBuilder().itemInputs(getModItem(Railcraft.ID, "machine.alpha", 1, 12, missing))
-                .itemOutputs(NHItemList.AdvancedCokeOvenBrick.get(4)).duration(15 * SECONDS).eut(2)
-                .addTo(extractorRecipes);
-        RecipeManagers.carpenterManager.addRecipe(
-                20,
-                FluidRegistry.getFluidStack("seedoil", 500),
-                getModItem(Forestry.ID, "sturdyMachine", 1, 0, missing),
-                NHItemList.EngineCore.get(),
-                "abc",
-                "def",
-                "ghi",
-                'b',
-                GTOreDictUnificator.get(OrePrefixes.plate, Materials.Lapis, 1L),
-                'e',
-                getModItem(Minecraft.ID, "piston", 1, 0, missing));
+        if (RCML) {
+            GTValues.RA.stdBuilder().itemInputs(getModItem(Railcraft.ID, "machine.alpha", 1, 12, missing))
+                    .itemOutputs(NHItemList.AdvancedCokeOvenBrick.get(4)).duration(15 * SECONDS).eut(2)
+                    .addTo(extractorRecipes);
+        }
+        if (FML) {
+            RecipeManagers.carpenterManager.addRecipe(
+                    20,
+                    FluidRegistry.getFluidStack("seedoil", 500),
+                    getModItem(Forestry.ID, "sturdyMachine", 1, 0, missing),
+                    NHItemList.EngineCore.get(),
+                    "abc",
+                    "def",
+                    "ghi",
+                    'b',
+                    GTOreDictUnificator.get(OrePrefixes.plate, Materials.Lapis, 1L),
+                    'e',
+                    getModItem(Minecraft.ID, "piston", 1, 0, missing));
+        }
 
         GTValues.RA.stdBuilder().itemInputs(NHItemList.ShapeBoat.get(1))
                 .itemOutputs(NHItemList.ExtruderShapeBoat.get(1)).fluidInputs(Materials.Steel.getMolten(576L))
@@ -1894,12 +1892,14 @@ public class ScriptCoreMod implements IScriptLoader {
                         new ItemData(Materials.Steel, 2 * GTValues.M),
                         new ItemData(Materials.Concrete, 1 * GTValues.M)));
 
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(GalacticraftMars.ID, "item.itemBasicAsteroids", 2, 6, missing),
-                        getModItem(GalacticraftCore.ID, "item.basicItem", 2, 14, missing))
-                .itemOutputs(NHItemList.LightBinding.get()).duration(30 * SECONDS).eut(TierEU.RECIPE_HV)
-                .addTo(assemblerRecipes);
+        if (GCML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(GalacticraftMars.ID, "item.itemBasicAsteroids", 2, 6, missing),
+                            getModItem(GalacticraftCore.ID, "item.basicItem", 2, 14, missing))
+                    .itemOutputs(NHItemList.LightBinding.get()).duration(30 * SECONDS).eut(TierEU.RECIPE_HV)
+                    .addTo(assemblerRecipes);
+        }
         GTValues.RA.stdBuilder().itemInputs(NHItemList.RawBioFiber.get(2)).circuit(2)
                 .itemOutputs(NHItemList.BioOrganicMesh.get()).duration(40 * SECONDS).eut(2).addTo(assemblerRecipes);
         GTValues.RA.stdBuilder()
@@ -1917,65 +1917,72 @@ public class ScriptCoreMod implements IScriptLoader {
                         GTOreDictUnificator.get(OrePrefixes.dust, Materials.Graphite, 1L))
                 .itemOutputs(BlockList.CompressedGraphite.get(2)).duration(5 * SECONDS).eut(TierEU.RECIPE_ULV)
                 .addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(RemoteIO.ID, "item.chip.location", 1, 0, missing),
-                        getModItem(RemoteIO.ID, "item.blank_plate", 1, 0, missing))
-                .itemOutputs(NHItemList.BlankPlatedChip.get()).duration(5 * SECONDS).eut(TierEU.RECIPE_HV)
-                .addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
-                        NHItemList.PulsatingSpatialCoreChip.get())
-                .itemOutputs(NHItemList.EngineeringProcessorSpatialPulsatingCore.get()).duration(5 * SECONDS)
-                .eut(TierEU.RECIPE_IV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
-                        NHItemList.DiamondFluidCoreChip.get())
-                .itemOutputs(NHItemList.EngineeringProcessorFluidDiamondCore.get()).duration(5 * SECONDS)
-                .eut(TierEU.RECIPE_EV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
-                        NHItemList.EmeraldAdvancedFluidCoreChip.get())
-                .itemOutputs(NHItemList.EngineeringProcessorFluidEmeraldCore.get()).duration(5 * SECONDS)
-                .eut(TierEU.RECIPE_IV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 22, missing),
-                        NHItemList.GoldCoreChip.get())
-                .itemOutputs(NHItemList.LogicProcessorItemGoldCore.get()).duration(5 * SECONDS).eut(TierEU.RECIPE_HV)
-                .addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
-                        NHItemList.DiamondCoreChip.get())
-                .itemOutputs(NHItemList.EngineeringProcessorItemDiamondCore.get()).duration(5 * SECONDS)
-                .eut(TierEU.RECIPE_EV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
-                        NHItemList.EmeraldAdvancedCoreChip.get())
-                .itemOutputs(NHItemList.EngineeringProcessorItemEmeraldCore.get()).duration(5 * SECONDS)
-                .eut(TierEU.RECIPE_IV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
-                        NHItemList.EmeraldHighAdvancedCoreChip.get())
-                .itemOutputs(NHItemList.EngineeringProcessorItemAdvEmeraldCore.get()).duration(5 * SECONDS)
-                .eut(TierEU.RECIPE_LuV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(GalaxySpace.ID, "item.CompressedPlates", 1, 3, missing),
-                        getModItem(GalaxySpace.ID, "item.CompressedPlates", 1, 6, missing))
-                .itemOutputs(NHItemList.LeadNickelPlate.get(2))
-                .fluidInputs(FluidRegistry.getFluidStack("ic2coolant", 2000)).duration(30 * SECONDS)
-                .eut(TierEU.RECIPE_EV / 2).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder().itemInputs(GTOreDictUnificator.get(OrePrefixes.dust, Materials.MysteriousCrystal, 1L))
-                .itemOutputs(getModItem(GalaxySpace.ID, "item.UnknowCrystal", 1, 0, missing)).outputChances(10000)
-                .fluidInputs(FluidRegistry.getFluidStack("molten.void", 288)).duration(1 * MINUTES)
-                .eut(TierEU.RECIPE_HV).addTo(autoclaveRecipes);
+        if (RML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(RemoteIO.ID, "item.chip.location", 1, 0, missing),
+                            getModItem(RemoteIO.ID, "item.blank_plate", 1, 0, missing))
+                    .itemOutputs(NHItemList.BlankPlatedChip.get()).duration(5 * SECONDS).eut(TierEU.RECIPE_HV)
+                    .addTo(assemblerRecipes);
+        }
+        if (AEML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
+                            NHItemList.PulsatingSpatialCoreChip.get())
+                    .itemOutputs(NHItemList.EngineeringProcessorSpatialPulsatingCore.get()).duration(5 * SECONDS)
+                    .eut(TierEU.RECIPE_IV).addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
+                            NHItemList.DiamondFluidCoreChip.get())
+                    .itemOutputs(NHItemList.EngineeringProcessorFluidDiamondCore.get()).duration(5 * SECONDS)
+                    .eut(TierEU.RECIPE_EV).addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
+                            NHItemList.EmeraldAdvancedFluidCoreChip.get())
+                    .itemOutputs(NHItemList.EngineeringProcessorFluidEmeraldCore.get()).duration(5 * SECONDS)
+                    .eut(TierEU.RECIPE_IV).addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 22, missing),
+                            NHItemList.GoldCoreChip.get())
+                    .itemOutputs(NHItemList.LogicProcessorItemGoldCore.get()).duration(5 * SECONDS)
+                    .eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
+                            NHItemList.DiamondCoreChip.get())
+                    .itemOutputs(NHItemList.EngineeringProcessorItemDiamondCore.get()).duration(5 * SECONDS)
+                    .eut(TierEU.RECIPE_EV).addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
+                            NHItemList.EmeraldAdvancedCoreChip.get())
+                    .itemOutputs(NHItemList.EngineeringProcessorItemEmeraldCore.get()).duration(5 * SECONDS)
+                    .eut(TierEU.RECIPE_IV).addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
+                            NHItemList.EmeraldHighAdvancedCoreChip.get())
+                    .itemOutputs(NHItemList.EngineeringProcessorItemAdvEmeraldCore.get()).duration(5 * SECONDS)
+                    .eut(TierEU.RECIPE_LuV).addTo(assemblerRecipes);
+        }
+        if (GSML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            getModItem(GalaxySpace.ID, "item.CompressedPlates", 1, 3, missing),
+                            getModItem(GalaxySpace.ID, "item.CompressedPlates", 1, 6, missing))
+                    .itemOutputs(NHItemList.LeadNickelPlate.get(2))
+                    .fluidInputs(FluidRegistry.getFluidStack("ic2coolant", 2000)).duration(30 * SECONDS)
+                    .eut(TierEU.RECIPE_EV / 2).addTo(assemblerRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(GTOreDictUnificator.get(OrePrefixes.dust, Materials.MysteriousCrystal, 1L))
+                    .itemOutputs(getModItem(GalaxySpace.ID, "item.UnknowCrystal", 1, 0, missing)).outputChances(10000)
+                    .fluidInputs(FluidRegistry.getFluidStack("molten.void", 288)).duration(1 * MINUTES)
+                    .eut(TierEU.RECIPE_HV).addTo(autoclaveRecipes);
+        }
         GTValues.RA.stdBuilder().itemInputs(getModItem(IndustrialCraft2.ID, "itemFuelPlantBall", 16, 0, missing))
                 .itemOutputs(NHItemList.RawBioFiber.get()).outputChances(3300)
                 .fluidInputs(FluidRegistry.getFluidStack("ic2biomass", 8)).duration(10 * SECONDS).eut(20)
@@ -2222,60 +2229,62 @@ public class ScriptCoreMod implements IScriptLoader {
                     .itemOutputs(getModItem(TinkerConstruct.ID, "bowstring", 1, 1, missing)).duration(20 * SECONDS)
                     .eut(TierEU.RECIPE_LV).addTo(extruderRecipes);
         }
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        NHItemList.EngravedManyullynCrystalChip.get(),
-                        getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 4, missing))
-                .itemOutputs(NHItemList.PulsatingSpatialCoreChip.get()).duration(15 * SECONDS).eut(TierEU.RECIPE_IV)
-                .addTo(formingPressRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        ItemList.Circuit_Parts_Crystal_Chip_Master.get(1L),
-                        getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 3, missing))
-                .itemOutputs(NHItemList.DiamondFluidCoreChip.get()).duration(15 * SECONDS).eut(TierEU.RECIPE_HV)
-                .addTo(formingPressRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        ItemList.Circuit_Parts_Crystal_Chip_Master.get(1L),
-                        getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 7, missing))
-                .itemOutputs(NHItemList.EmeraldAdvancedFluidCoreChip.get()).duration(15 * SECONDS)
-                .eut(TierEU.RECIPE_EV / 2).addTo(formingPressRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        NHItemList.EngravedGoldChip.get(),
-                        getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 2, missing))
-                .itemOutputs(NHItemList.GoldCoreChip.get()).duration(15 * SECONDS).eut(TierEU.RECIPE_HV / 2)
-                .addTo(formingPressRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        NHItemList.EngravedDiamondCrystalChip.get(),
-                        getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 3, missing))
-                .itemOutputs(NHItemList.DiamondCoreChip.get()).duration(15 * SECONDS).eut(TierEU.RECIPE_HV)
-                .addTo(formingPressRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        NHItemList.EngravedEnergyChip.get(),
-                        getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 7, missing))
-                .itemOutputs(NHItemList.EmeraldAdvancedCoreChip.get()).duration(15 * SECONDS).eut(TierEU.RECIPE_EV / 2)
-                .addTo(formingPressRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        NHItemList.EngravedQuantumChip.get(),
-                        getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 7, missing))
-                .itemOutputs(NHItemList.EmeraldHighAdvancedCoreChip.get()).duration(15 * SECONDS)
-                .eut(TierEU.RECIPE_IV / 2).addTo(formingPressRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        ItemList.Circuit_Parts_Crystal_Chip_Elite.get(1L),
-                        getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 4, missing))
-                .itemOutputs(NHItemList.GeneticCircuit.get()).duration(15 * SECONDS).eut(TierEU.RECIPE_HV)
-                .addTo(formingPressRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        ItemList.Circuit_Parts_Crystal_Chip_Elite.get(1L),
-                        getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 3, missing))
-                .itemOutputs(NHItemList.EnvironmentalCircuit.get()).duration(15 * SECONDS).eut(TierEU.RECIPE_HV)
-                .addTo(formingPressRecipes);
+        if (BCML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            NHItemList.EngravedManyullynCrystalChip.get(),
+                            getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 4, missing))
+                    .itemOutputs(NHItemList.PulsatingSpatialCoreChip.get()).duration(15 * SECONDS).eut(TierEU.RECIPE_IV)
+                    .addTo(formingPressRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            ItemList.Circuit_Parts_Crystal_Chip_Master.get(1L),
+                            getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 3, missing))
+                    .itemOutputs(NHItemList.DiamondFluidCoreChip.get()).duration(15 * SECONDS).eut(TierEU.RECIPE_HV)
+                    .addTo(formingPressRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            ItemList.Circuit_Parts_Crystal_Chip_Master.get(1L),
+                            getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 7, missing))
+                    .itemOutputs(NHItemList.EmeraldAdvancedFluidCoreChip.get()).duration(15 * SECONDS)
+                    .eut(TierEU.RECIPE_EV / 2).addTo(formingPressRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            NHItemList.EngravedGoldChip.get(),
+                            getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 2, missing))
+                    .itemOutputs(NHItemList.GoldCoreChip.get()).duration(15 * SECONDS).eut(TierEU.RECIPE_HV / 2)
+                    .addTo(formingPressRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            NHItemList.EngravedDiamondCrystalChip.get(),
+                            getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 3, missing))
+                    .itemOutputs(NHItemList.DiamondCoreChip.get()).duration(15 * SECONDS).eut(TierEU.RECIPE_HV)
+                    .addTo(formingPressRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            NHItemList.EngravedEnergyChip.get(),
+                            getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 7, missing))
+                    .itemOutputs(NHItemList.EmeraldAdvancedCoreChip.get()).duration(15 * SECONDS)
+                    .eut(TierEU.RECIPE_EV / 2).addTo(formingPressRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            NHItemList.EngravedQuantumChip.get(),
+                            getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 7, missing))
+                    .itemOutputs(NHItemList.EmeraldHighAdvancedCoreChip.get()).duration(15 * SECONDS)
+                    .eut(TierEU.RECIPE_IV / 2).addTo(formingPressRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            ItemList.Circuit_Parts_Crystal_Chip_Elite.get(1L),
+                            getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 4, missing))
+                    .itemOutputs(NHItemList.GeneticCircuit.get()).duration(15 * SECONDS).eut(TierEU.RECIPE_HV)
+                    .addTo(formingPressRecipes);
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            ItemList.Circuit_Parts_Crystal_Chip_Elite.get(1L),
+                            getModItem(BuildCraftSilicon.ID, "redstoneChipset", 1, 3, missing))
+                    .itemOutputs(NHItemList.EnvironmentalCircuit.get()).duration(15 * SECONDS).eut(TierEU.RECIPE_HV)
+                    .addTo(formingPressRecipes);
+        }
         GTValues.RA.stdBuilder()
                 .itemInputs(
                         GTOreDictUnificator.get(OrePrefixes.plate, Materials.Aluminium, 2L),
@@ -2306,12 +2315,14 @@ public class ScriptCoreMod implements IScriptLoader {
                         GTOreDictUnificator.get(OrePrefixes.plate, Materials.Iron, 4L))
                 .itemOutputs(NHItemList.ChromeIronPlate.get()).duration(30 * SECONDS).eut(TierEU.RECIPE_LuV)
                 .addTo(formingPressRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        GTOreDictUnificator.get(OrePrefixes.plate, Materials.Iridium, 2L),
-                        GTOreDictUnificator.get(OrePrefixes.plate, Materials.Iron, 4L))
-                .itemOutputs(getModItem(AdvancedSolarPanel.ID, "asp_crafting_items", 1, 6, missing))
-                .duration(30 * SECONDS).eut(TierEU.RECIPE_ZPM).addTo(formingPressRecipes);
+        if (ASML) {
+            GTValues.RA.stdBuilder()
+                    .itemInputs(
+                            GTOreDictUnificator.get(OrePrefixes.plate, Materials.Iridium, 2L),
+                            GTOreDictUnificator.get(OrePrefixes.plate, Materials.Iron, 4L))
+                    .itemOutputs(getModItem(AdvancedSolarPanel.ID, "asp_crafting_items", 1, 6, missing))
+                    .duration(30 * SECONDS).eut(TierEU.RECIPE_ZPM).addTo(formingPressRecipes);
+        }
         GTValues.RA.stdBuilder()
                 .itemInputs(
                         GTOreDictUnificator.get(OrePrefixes.plate, Materials.Naquadria, 2L),
@@ -2341,9 +2352,11 @@ public class ScriptCoreMod implements IScriptLoader {
                         GTOreDictUnificator.get(OrePrefixes.stick, Materials.Stone, 1),
                         GTOreDictUnificator.get(OrePrefixes.dustSmall, Materials.Stone, 2L))
                 .duration(8 * SECONDS).eut(TierEU.RECIPE_LV / 2).addTo(latheRecipes);
-        GTValues.RA.stdBuilder().itemInputs(getModItem(Forestry.ID, "mushroom", 1, wildcard, missing))
-                .itemOutputs(NHItemList.MushroomPowder.get(2)).outputChances(10000).duration(15 * SECONDS).eut(2)
-                .addTo(maceratorRecipes);
+        if (FML) {
+            GTValues.RA.stdBuilder().itemInputs(getModItem(Forestry.ID, "mushroom", 1, wildcard, missing))
+                    .itemOutputs(NHItemList.MushroomPowder.get(2)).outputChances(10000).duration(15 * SECONDS).eut(2)
+                    .addTo(maceratorRecipes);
+        }
         GTValues.RA.stdBuilder().itemInputs(getModItem(Minecraft.ID, "brown_mushroom", 1, 0, missing))
                 .itemOutputs(NHItemList.MushroomPowder.get(2)).outputChances(10000).duration(15 * SECONDS).eut(2)
                 .addTo(maceratorRecipes);
@@ -2352,24 +2365,29 @@ public class ScriptCoreMod implements IScriptLoader {
                     .itemOutputs(NHItemList.MushroomPowder.get(2)).outputChances(10000).duration(15 * SECONDS).eut(2)
                     .addTo(maceratorRecipes);
         }
-        GTValues.RA.stdBuilder().itemInputs(getModItem(PamsHarvestCraft.ID, "whitemushroomItem", 1, 0, missing))
-                .itemOutputs(NHItemList.MushroomPowder.get(2)).outputChances(10000).duration(15 * SECONDS).eut(2)
-                .addTo(maceratorRecipes);
+        if (PHML) {
+            GTValues.RA.stdBuilder().itemInputs(getModItem(PamsHarvestCraft.ID, "whitemushroomItem", 1, 0, missing))
+                    .itemOutputs(NHItemList.MushroomPowder.get(2)).outputChances(10000).duration(15 * SECONDS).eut(2)
+                    .addTo(maceratorRecipes);
+        }
         GTValues.RA.stdBuilder().itemInputs(NHItemList.IridiumAlloyItemCasing.get())
                 .itemOutputs(GTOreDictUnificator.get(OrePrefixes.dustSmall, Materials.Iridium, 8L)).outputChances(10000)
                 .duration(15 * SECONDS).eut(2).addTo(maceratorRecipes);
-        GTValues.RA.stdBuilder().itemInputs(getModItem(GalaxySpace.ID, "item.UnknowCrystal", 1, 0, missing))
-                .itemOutputs(GTOreDictUnificator.get(OrePrefixes.dust, Materials.MysteriousCrystal, 1L))
-                .outputChances(10000).duration(15 * SECONDS).eut(2).addTo(maceratorRecipes);
+        if (GSML) {
+            GTValues.RA.stdBuilder().itemInputs(getModItem(GalaxySpace.ID, "item.UnknowCrystal", 1, 0, missing))
+                    .itemOutputs(GTOreDictUnificator.get(OrePrefixes.dust, Materials.MysteriousCrystal, 1L))
+                    .outputChances(10000).duration(15 * SECONDS).eut(2).addTo(maceratorRecipes);
+        }
         GTValues.RA.stdBuilder().itemInputs(NHItemList.MysteriousCrystal.get())
                 .itemOutputs(GTOreDictUnificator.get(OrePrefixes.dust, Materials.MysteriousCrystal, 9L))
                 .outputChances(10000).duration(15 * SECONDS).eut(2).addTo(maceratorRecipes);
         GTValues.RA.stdBuilder().itemInputs(NHItemList.RawMytryl.get())
                 .itemOutputs(GTOreDictUnificator.get(OrePrefixes.dust, Materials.Mytryl, 1)).outputChances(10000)
                 .duration(15 * SECONDS).eut(2).addTo(maceratorRecipes);
-        GTValues.RA.stdBuilder().itemInputs(getModItem(ProjectRedCore.ID, "projectred.core.part", 1, 55, missing))
-                .itemOutputs(NHItemList.ElectrotineWire.get(2)).duration(5 * SECONDS).eut(4).addTo(wiremillRecipes);
-
+        if (PREDML) {
+            GTValues.RA.stdBuilder().itemInputs(getModItem(ProjectRedCore.ID, "projectred.core.part", 1, 55, missing))
+                    .itemOutputs(NHItemList.ElectrotineWire.get(2)).duration(5 * SECONDS).eut(4).addTo(wiremillRecipes);
+        }
         // Obsidian Stuff
         GTValues.RA.stdBuilder().itemInputs(new ItemStack(Blocks.obsidian))
                 .itemOutputs(NHItemList.LongObsidianRod.get(2)).duration(32 * SECONDS).eut(TierEU.RECIPE_LV / 2)

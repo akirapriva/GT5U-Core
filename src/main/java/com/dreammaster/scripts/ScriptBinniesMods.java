@@ -1,6 +1,5 @@
 package com.dreammaster.scripts;
 
-import static gregtech.api.enums.Mods.Avaritia;
 import static gregtech.api.enums.Mods.ExtraBees;
 import static gregtech.api.recipe.RecipeMaps.maceratorRecipes;
 import static gregtech.api.util.GTModHandler.getModItem;
@@ -23,7 +22,7 @@ public class ScriptBinniesMods implements IScriptLoader {
 
     @Override
     public List<String> getDependencies() {
-        return Arrays.asList(Avaritia.ID, ExtraBees.ID);
+        return Arrays.asList(ExtraBees.ID);
     }
 
     @Override

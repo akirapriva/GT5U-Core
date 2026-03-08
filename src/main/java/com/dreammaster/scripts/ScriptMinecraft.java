@@ -1764,20 +1764,20 @@ public class ScriptMinecraft implements IScriptLoader {
         addShapedRecipe(
                 getModItem(Minecraft.ID, "crafting_table", 1, 0, missing),
                 "stickWood",
-                "stickWood",
                 "logWood",
-                "logWood");
+                "logWood",
+                "stickWood");
         addShapedRecipe(
                 getModItem(Minecraft.ID, "chest", 1, 0, missing),
-                "stickLongWood",
+                getModItem(EtFuturumRequiem.ID, "bark", 1, 0, missing),
                 "plankWood",
-                "stickLongWood",
+                getModItem(EtFuturumRequiem.ID, "bark", 1, 0, missing),
                 "plankWood",
                 "craftingToolKnife",
                 "plankWood",
-                "stickLongWood",
+                getModItem(EtFuturumRequiem.ID, "bark", 1, 0, missing),
                 "plankWood",
-                "stickLongWood");
+                getModItem(EtFuturumRequiem.ID, "bark", 1, 0, missing));
         addShapedRecipe(
                 getModItem(Minecraft.ID, "trapped_chest", 1, 0, missing),
                 null,

@@ -326,15 +326,15 @@ public class ScriptIndustrialCraft implements IScriptLoader {
                 null);
         addShapedRecipe(
                 getModItem(IndustrialCraft2.ID, "blockMachine", 1, 1, missing),
-                "plateIron",
-                "plateIron",
-                "plateIron",
-                "plateIron",
                 "craftingToolWrench",
-                "plateIron",
-                "plateIron",
+                "plateDoubleIron",
+                "craftingToolScrewdriver",
+                "plateDoubleIron",
                 getModItem(Minecraft.ID, "furnace", 1, 0, missing),
-                "plateIron");
+                "plateDoubleIron",
+                "screwIron",
+                "plateDoubleIron",
+                "screwIron");
         addShapedRecipe(
                 getModItem(IndustrialCraft2.ID, "reactorVent", 1, 1, missing),
                 "plateAluminium",

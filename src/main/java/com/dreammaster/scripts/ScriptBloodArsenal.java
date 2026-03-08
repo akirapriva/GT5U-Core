@@ -1,5 +1,6 @@
 package com.dreammaster.scripts;
 
+import static com.dreammaster.scripts.BooleanModLoaded.*;
 import static gregtech.api.enums.Mods.BloodArsenal;
 import static gregtech.api.enums.Mods.BloodMagic;
 import static gregtech.api.enums.Mods.EnderIO;
@@ -46,14 +47,7 @@ public class ScriptBloodArsenal implements IScriptLoader {
 
     @Override
     public List<String> getDependencies() {
-        return Arrays.asList(
-                BloodArsenal.ID,
-                BloodMagic.ID,
-                EnderIO.ID,
-                Natura.ID,
-                Thaumcraft.ID,
-                TinkerConstruct.ID,
-                Witchery.ID);
+        return Arrays.asList(BloodArsenal.ID, BloodMagic.ID);
     }
 
     @Override
@@ -168,102 +162,104 @@ public class ScriptBloodArsenal implements IScriptLoader {
                         "craftingToolScrewdriver",
                         'h',
                         getModItem(BloodArsenal.ID, "blood_infused_stick", 1, 0, missing)));
-        GameRegistry.addRecipe(
-                new ShapedBloodOrbRecipe(
-                        getModItem(BloodArsenal.ID, "blood_infused_pickaxe_iron", 1, 0, missing),
-                        "abc",
-                        "def",
-                        "ghi",
-                        'a',
-                        getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
-                        'b',
-                        "ingotBloodInfusedIron",
-                        'c',
-                        "ingotBloodInfusedIron",
-                        'd',
-                        "screwBloodInfusedIron",
-                        'e',
-                        getModItem(BloodArsenal.ID, "blood_infused_pickaxe_wood", 1, 0, missing),
-                        'f',
-                        "craftingToolScrewdriver",
-                        'g',
-                        getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing),
-                        'h',
-                        getModItem(BloodMagic.ID, "magicianBloodOrb", 1, 0, missing),
-                        'i',
-                        getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing)));
-        GameRegistry.addRecipe(
-                new ShapedBloodOrbRecipe(
-                        getModItem(BloodArsenal.ID, "blood_infused_axe_iron", 1, 0, missing),
-                        "abc",
-                        "def",
-                        "ghi",
-                        'a',
-                        getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
-                        'b',
-                        "ingotBloodInfusedIron",
-                        'c',
-                        "screwBloodInfusedIron",
-                        'd',
-                        getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
-                        'e',
-                        getModItem(BloodArsenal.ID, "blood_infused_axe_wood", 1, 0, missing),
-                        'f',
-                        "craftingToolScrewdriver",
-                        'g',
-                        getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing),
-                        'h',
-                        getModItem(BloodMagic.ID, "magicianBloodOrb", 1, 0, missing),
-                        'i',
-                        getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing)));
-        GameRegistry.addRecipe(
-                new ShapedBloodOrbRecipe(
-                        getModItem(BloodArsenal.ID, "blood_infused_shovel_iron", 1, 0, missing),
-                        "abc",
-                        "def",
-                        "ghi",
-                        'a',
-                        "screwBloodInfusedIron",
-                        'b',
-                        getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
-                        'c',
-                        "screwBloodInfusedIron",
-                        'd',
-                        "craftingToolScrewdriver",
-                        'e',
-                        getModItem(BloodArsenal.ID, "blood_infused_shovel_wood", 1, 0, missing),
-                        'f',
-                        "screwBloodInfusedIron",
-                        'g',
-                        getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing),
-                        'h',
-                        getModItem(BloodMagic.ID, "magicianBloodOrb", 1, 0, missing),
-                        'i',
-                        getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing)));
-        GameRegistry.addRecipe(
-                new ShapedBloodOrbRecipe(
-                        getModItem(BloodArsenal.ID, "blood_infused_sword_iron", 1, 0, missing),
-                        "abc",
-                        "def",
-                        "ghi",
-                        'a',
-                        "screwBloodInfusedIron",
-                        'b',
-                        getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
-                        'c',
-                        "craftingToolScrewdriver",
-                        'd',
-                        getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
-                        'e',
-                        getModItem(BloodArsenal.ID, "blood_infused_sword_wood", 1, 0, missing),
-                        'f',
-                        "screwBloodInfusedIron",
-                        'g',
-                        getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing),
-                        'h',
-                        getModItem(BloodMagic.ID, "magicianBloodOrb", 1, 0, missing),
-                        'i',
-                        getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing)));
+        if (TCML) {
+            GameRegistry.addRecipe(
+                    new ShapedBloodOrbRecipe(
+                            getModItem(BloodArsenal.ID, "blood_infused_pickaxe_iron", 1, 0, missing),
+                            "abc",
+                            "def",
+                            "ghi",
+                            'a',
+                            getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
+                            'b',
+                            "ingotBloodInfusedIron",
+                            'c',
+                            "ingotBloodInfusedIron",
+                            'd',
+                            "screwBloodInfusedIron",
+                            'e',
+                            getModItem(BloodArsenal.ID, "blood_infused_pickaxe_wood", 1, 0, missing),
+                            'f',
+                            "craftingToolScrewdriver",
+                            'g',
+                            getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing),
+                            'h',
+                            getModItem(BloodMagic.ID, "magicianBloodOrb", 1, 0, missing),
+                            'i',
+                            getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing)));
+            GameRegistry.addRecipe(
+                    new ShapedBloodOrbRecipe(
+                            getModItem(BloodArsenal.ID, "blood_infused_axe_iron", 1, 0, missing),
+                            "abc",
+                            "def",
+                            "ghi",
+                            'a',
+                            getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
+                            'b',
+                            "ingotBloodInfusedIron",
+                            'c',
+                            "screwBloodInfusedIron",
+                            'd',
+                            getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
+                            'e',
+                            getModItem(BloodArsenal.ID, "blood_infused_axe_wood", 1, 0, missing),
+                            'f',
+                            "craftingToolScrewdriver",
+                            'g',
+                            getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing),
+                            'h',
+                            getModItem(BloodMagic.ID, "magicianBloodOrb", 1, 0, missing),
+                            'i',
+                            getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing)));
+            GameRegistry.addRecipe(
+                    new ShapedBloodOrbRecipe(
+                            getModItem(BloodArsenal.ID, "blood_infused_shovel_iron", 1, 0, missing),
+                            "abc",
+                            "def",
+                            "ghi",
+                            'a',
+                            "screwBloodInfusedIron",
+                            'b',
+                            getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
+                            'c',
+                            "screwBloodInfusedIron",
+                            'd',
+                            "craftingToolScrewdriver",
+                            'e',
+                            getModItem(BloodArsenal.ID, "blood_infused_shovel_wood", 1, 0, missing),
+                            'f',
+                            "screwBloodInfusedIron",
+                            'g',
+                            getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing),
+                            'h',
+                            getModItem(BloodMagic.ID, "magicianBloodOrb", 1, 0, missing),
+                            'i',
+                            getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing)));
+            GameRegistry.addRecipe(
+                    new ShapedBloodOrbRecipe(
+                            getModItem(BloodArsenal.ID, "blood_infused_sword_iron", 1, 0, missing),
+                            "abc",
+                            "def",
+                            "ghi",
+                            'a',
+                            "screwBloodInfusedIron",
+                            'b',
+                            getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
+                            'c',
+                            "craftingToolScrewdriver",
+                            'd',
+                            getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
+                            'e',
+                            getModItem(BloodArsenal.ID, "blood_infused_sword_wood", 1, 0, missing),
+                            'f',
+                            "screwBloodInfusedIron",
+                            'g',
+                            getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing),
+                            'h',
+                            getModItem(BloodMagic.ID, "magicianBloodOrb", 1, 0, missing),
+                            'i',
+                            getModItem(BloodArsenal.ID, "amorphic_catalyst", 1, 0, missing)));
+        }
         GameRegistry.addRecipe(
                 new ShapedBloodOrbRecipe(
                         getModItem(BloodArsenal.ID, "blood_infused_pickaxe_diamond", 1, 0, missing),
@@ -456,75 +452,78 @@ public class ScriptBloodArsenal implements IScriptLoader {
                         getModItem(BloodMagic.ID, "runeOfSelfSacrifice", 1, 0, missing),
                         'i',
                         "stickLongBlaze"));
-        GameRegistry.addRecipe(
-                new ShapedBloodOrbRecipe(
-                        getModItem(BloodArsenal.ID, "glass_sacrificial_dagger", 1, 0, missing),
-                        "abc",
-                        "def",
-                        "ghi",
-                        'a',
-                        getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
-                        'b',
-                        getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
-                        'c',
-                        getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
-                        'd',
-                        getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
-                        'e',
-                        getModItem(BloodMagic.ID, "sacrificialKnife", 1, 0, missing),
-                        'f',
-                        getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
-                        'g',
-                        getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
-                        'h',
-                        getModItem(BloodMagic.ID, "magicianBloodOrb", 1, 0, missing),
-                        'i',
-                        getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing)));
-        GameRegistry.addRecipe(
-                new ShapedBloodOrbRecipe(
-                        getModItem(BloodArsenal.ID, "glass_dagger_of_sacrifice", 1, 0, missing),
-                        "abc",
-                        "def",
-                        "ghi",
-                        'a',
-                        getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
-                        'b',
-                        getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
-                        'c',
-                        getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
-                        'd',
-                        getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
-                        'e',
-                        getModItem(BloodMagic.ID, "daggerOfSacrifice", 1, 0, missing),
-                        'f',
-                        getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
-                        'g',
-                        getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
-                        'h',
-                        getModItem(BloodMagic.ID, "magicianBloodOrb", 1, 0, missing),
-                        'i',
-                        getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing)));
-        GameRegistry.addRecipe(
-                new ShapedBloodOrbRecipe(
-                        getModItem(BloodArsenal.ID, "vampire_ring", 1, 0, missing),
-                        "abc",
-                        "def",
-                        "ghi",
-                        'a',
-                        getModItem(BloodArsenal.ID, "blood_infused_diamond_bound", 1, 0, missing),
-                        'b',
-                        "wireFineBloodInfusedIron",
-                        'd',
-                        "wireFineBloodInfusedIron",
-                        'e',
-                        getModItem(Thaumcraft.ID, "ItemBaubleBlanks", 1, 1, missing),
-                        'f',
-                        "wireFineBloodInfusedIron",
-                        'g',
-                        getModItem(BloodMagic.ID, "masterBloodOrb", 1, 0, missing),
-                        'h',
-                        "wireFineBloodInfusedIron"));
-
+        if (TCML) {
+            GameRegistry.addRecipe(
+                    new ShapedBloodOrbRecipe(
+                            getModItem(BloodArsenal.ID, "glass_sacrificial_dagger", 1, 0, missing),
+                            "abc",
+                            "def",
+                            "ghi",
+                            'a',
+                            getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
+                            'b',
+                            getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
+                            'c',
+                            getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
+                            'd',
+                            getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
+                            'e',
+                            getModItem(BloodMagic.ID, "sacrificialKnife", 1, 0, missing),
+                            'f',
+                            getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
+                            'g',
+                            getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
+                            'h',
+                            getModItem(BloodMagic.ID, "magicianBloodOrb", 1, 0, missing),
+                            'i',
+                            getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing)));
+            GameRegistry.addRecipe(
+                    new ShapedBloodOrbRecipe(
+                            getModItem(BloodArsenal.ID, "glass_dagger_of_sacrifice", 1, 0, missing),
+                            "abc",
+                            "def",
+                            "ghi",
+                            'a',
+                            getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
+                            'b',
+                            getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
+                            'c',
+                            getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
+                            'd',
+                            getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
+                            'e',
+                            getModItem(BloodMagic.ID, "daggerOfSacrifice", 1, 0, missing),
+                            'f',
+                            getModItem(BloodArsenal.ID, "glass_shard", 1, 0, missing),
+                            'g',
+                            getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing),
+                            'h',
+                            getModItem(BloodMagic.ID, "magicianBloodOrb", 1, 0, missing),
+                            'i',
+                            getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing)));
+        }
+        if (TML) {
+            GameRegistry.addRecipe(
+                    new ShapedBloodOrbRecipe(
+                            getModItem(BloodArsenal.ID, "vampire_ring", 1, 0, missing),
+                            "abc",
+                            "def",
+                            "ghi",
+                            'a',
+                            getModItem(BloodArsenal.ID, "blood_infused_diamond_bound", 1, 0, missing),
+                            'b',
+                            "wireFineBloodInfusedIron",
+                            'd',
+                            "wireFineBloodInfusedIron",
+                            'e',
+                            getModItem(Thaumcraft.ID, "ItemBaubleBlanks", 1, 1, missing),
+                            'f',
+                            "wireFineBloodInfusedIron",
+                            'g',
+                            getModItem(BloodMagic.ID, "masterBloodOrb", 1, 0, missing),
+                            'h',
+                            "wireFineBloodInfusedIron"));
+        }
         AltarRecipeRegistry.registerAltarRecipe(
                 getModItem(BloodArsenal.ID, "blood_infused_wood", 1, 0, missing),
                 getModItem(Minecraft.ID, "log", 1, 0, missing),
@@ -637,14 +636,18 @@ public class ScriptBloodArsenal implements IScriptLoader {
                 20,
                 20,
                 false);
-        AltarRecipeRegistry.registerAltarRecipe(
-                getModItem(BloodArsenal.ID, "blood_burned_string", 1, 0, missing),
-                getModItem(Witchery.ID, "ingredient", 1, 102, missing),
-                2,
-                5000,
-                20,
-                20,
-                false);
+        if (WML)
+
+        {
+            AltarRecipeRegistry.registerAltarRecipe(
+                    getModItem(BloodArsenal.ID, "blood_burned_string", 1, 0, missing),
+                    getModItem(Witchery.ID, "ingredient", 1, 102, missing),
+                    2,
+                    5000,
+                    20,
+                    20,
+                    false);
+        }
         AltarRecipeRegistry.registerAltarRecipe(
                 getModItem(BloodArsenal.ID, "soul_fragment", 1, 0, missing),
                 getModItem(BloodArsenal.ID, "heart", 1, 0, missing),
@@ -653,47 +656,61 @@ public class ScriptBloodArsenal implements IScriptLoader {
                 20,
                 20,
                 false);
-        BindingRegistry.registerRecipe(
-                getModItem(BloodArsenal.ID, "bound_sickle", 1, 0, missing),
-                getModItem(Thaumcraft.ID, "ItemHoeElemental", 1, 0, missing));
-        BindingRegistry.registerRecipe(
-                getModItem(BloodArsenal.ID, "bound_bow", 1, 0, missing),
-                getModItem(Thaumcraft.ID, "ItemBowBone", 1, 0, missing));
-        BindingRegistry.registerRecipe(
-                getModItem(BloodArsenal.ID, "bound_igniter", 1, 0, missing),
-                getModItem(Natura.ID, "natura.flintandblaze", 1, 0, missing));
-        BindingRegistry.registerRecipe(
-                getModItem(BloodArsenal.ID, "bound_shears", 1, 0, missing),
-                getModItem(EnderIO.ID, "item.darkSteel_shears", 1, 0, missing));
+        if (TML)
 
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "pickaxeHead", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "shovelHead", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "hatchetHead", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "toughRod", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "toughBinding", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "swordBlade", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "wideGuard", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "handGuard", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "crossbar", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "knifeBlade", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "frypanHead", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "signHead", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "chiselHead", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "broadAxeHead", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "excavatorHead", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "largeSwordBlade", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "hammerHead", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "arrowhead", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "ShurikenPart", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "BowLimbPart", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "CrossbowLimbPart", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "CrossbowBodyPart", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "fullGuard", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "scytheBlade", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "binding", 1, 251, missing));
-        TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "toolRod", 1, 251, missing));
+        {
+            BindingRegistry.registerRecipe(
+                    getModItem(BloodArsenal.ID, "bound_sickle", 1, 0, missing),
+                    getModItem(Thaumcraft.ID, "ItemHoeElemental", 1, 0, missing));
+            BindingRegistry.registerRecipe(
+                    getModItem(BloodArsenal.ID, "bound_bow", 1, 0, missing),
+                    getModItem(Thaumcraft.ID, "ItemBowBone", 1, 0, missing));
+        }
+        if (NML)
 
+        {
+            BindingRegistry.registerRecipe(
+                    getModItem(BloodArsenal.ID, "bound_igniter", 1, 0, missing),
+                    getModItem(Natura.ID, "natura.flintandblaze", 1, 0, missing));
+        }
+        if (EIOML)
+
+        {
+            BindingRegistry.registerRecipe(
+                    getModItem(BloodArsenal.ID, "bound_shears", 1, 0, missing),
+                    getModItem(EnderIO.ID, "item.darkSteel_shears", 1, 0, missing));
+        }
+        if (TCML)
+
+        {
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "pickaxeHead", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "shovelHead", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "hatchetHead", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "heavyPlate", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "toughRod", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "toughBinding", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "swordBlade", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "wideGuard", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "handGuard", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "crossbar", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "knifeBlade", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "frypanHead", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "signHead", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "chiselHead", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "broadAxeHead", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "excavatorHead", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "largeSwordBlade", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "hammerHead", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "arrowhead", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "ShurikenPart", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "BowLimbPart", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "CrossbowLimbPart", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "CrossbowBodyPart", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "fullGuard", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "scytheBlade", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "binding", 1, 251, missing));
+            TConstructHelper.removeTableRecipe(getModItem(TinkerConstruct.ID, "toolRod", 1, 251, missing));
+        }
         GTValues.RA.stdBuilder().itemInputs(getModItem(BloodArsenal.ID, "blood_money", 1, 1, missing))
                 .itemOutputs(
                         getModItem(BloodArsenal.ID, "blood_money", 1, 0, missing),

@@ -44,15 +44,7 @@ public class ScriptChisel implements IScriptLoader {
 
     @Override
     public List<String> getDependencies() {
-        return Arrays.asList(
-                Chisel.ID,
-                EnderIO.ID,
-                GalacticraftAmunRa.ID,
-                GalacticraftCore.ID,
-                IndustrialCraft2.ID,
-                IronChests.ID,
-                ProjectRedExploration.ID,
-                Railcraft.ID);
+        return Arrays.asList(Chisel.ID, IndustrialCraft2.ID);
     }
 
     @Override
@@ -123,17 +115,19 @@ public class ScriptChisel implements IScriptLoader {
                 "stickSteel",
                 "screwSteel",
                 "craftingToolHardHammer");
-        addShapedRecipe(
-                getModItem(Chisel.ID, "autoChisel", 1, 0, missing),
-                "screwSteel",
-                "ringWoodSealed",
-                "screwSteel",
-                ItemList.Conveyor_Module_LV.get(1L),
-                ItemList.Cover_Crafting.get(1L),
-                ItemList.Robot_Arm_LV.get(1L),
-                "craftingToolScrewdriver",
-                getModItem(IronChests.ID, "BlockIronChest", 1, 0, missing),
-                "craftingToolHardHammer");
+        if (IML) {
+            addShapedRecipe(
+                    getModItem(Chisel.ID, "autoChisel", 1, 0, missing),
+                    "screwSteel",
+                    "ringWoodSealed",
+                    "screwSteel",
+                    ItemList.Conveyor_Module_LV.get(1L),
+                    ItemList.Cover_Crafting.get(1L),
+                    ItemList.Robot_Arm_LV.get(1L),
+                    "craftingToolScrewdriver",
+                    getModItem(IronChests.ID, "BlockIronChest", 1, 0, missing),
+                    "craftingToolHardHammer");
+        }
         addShapedRecipe(
                 getModItem(Chisel.ID, "upgrade", 1, 0, missing),
                 "screwSteel",
@@ -281,14 +275,18 @@ public class ScriptChisel implements IScriptLoader {
             ChiselHelper
                     .addVariationFromStack("glasswork", getModItem(TinkerConstruct.ID, "GlassBlock", 1, 0, missing));
         }
-        ChiselHelper.addVariationFromStack("glasswork", getModItem(EnderIO.ID, "blockFusedQuartz", 1, 1, missing));
+        if (EIOML) {
+            ChiselHelper.addVariationFromStack("glasswork", getModItem(EnderIO.ID, "blockFusedQuartz", 1, 1, missing));
+        }
         if (TCML) {
             ChiselHelper.addVariationFromStack("glass", getModItem(TinkerConstruct.ID, "GlassBlock", 1, 0, missing));
         }
         if (NML) {
             ChiselHelper.addVariationFromStack("cloud", getModItem(Natura.ID, "Cloud", 1, 0, missing));
         }
-        ChiselHelper.addVariationFromStack("marble", getModItem(Railcraft.ID, "cube", 1, 7, missing));
+        if (RCML) {
+            ChiselHelper.addVariationFromStack("marble", getModItem(Railcraft.ID, "cube", 1, 7, missing));
+        }
         ChiselHelper.addVariationFromStack("marble", new ItemStack(GregTechAPI.sBlockStones, 1, 0));
         ChiselHelper.addVariationFromStack("marble", new ItemStack(GregTechAPI.sBlockStones, 1, 1));
         ChiselHelper.addVariationFromStack("marble", new ItemStack(GregTechAPI.sBlockStones, 1, 2));
@@ -297,7 +295,9 @@ public class ScriptChisel implements IScriptLoader {
         ChiselHelper.addVariationFromStack("marble", new ItemStack(GregTechAPI.sBlockStones, 1, 5));
         ChiselHelper.addVariationFromStack("marble", new ItemStack(GregTechAPI.sBlockStones, 1, 6));
         ChiselHelper.addVariationFromStack("marble", new ItemStack(GregTechAPI.sBlockStones, 1, 7));
-        ChiselHelper.addVariationFromStack("RCAbyssalBlock", getModItem(Railcraft.ID, "cube", 1, 6, missing));
+        if (RCML) {
+            ChiselHelper.addVariationFromStack("RCAbyssalBlock", getModItem(Railcraft.ID, "cube", 1, 6, missing));
+        }
         ChiselHelper.addVariationFromStack(
                 "RCAbyssalBlock",
                 GTOreDictUnificator.get(OrePrefixes.stone, Materials.GraniteBlack, 1L));
@@ -317,25 +317,29 @@ public class ScriptChisel implements IScriptLoader {
         ChiselHelper.addVariationFromStack("basalts", new ItemStack(GregTechAPI.sBlockStones, 1, 13));
         ChiselHelper.addVariationFromStack("basalts", new ItemStack(GregTechAPI.sBlockStones, 1, 14));
         ChiselHelper.addVariationFromStack("basalts", new ItemStack(GregTechAPI.sBlockStones, 1, 15));
-        ChiselHelper.addVariationFromStack(
-                "basalts",
-                getModItem(ProjectRedExploration.ID, "projectred.exploration.stone", 1, 2, missing));
-        ChiselHelper.addVariationFromStack(
-                "basalts",
-                getModItem(ProjectRedExploration.ID, "projectred.exploration.stone", 1, 3, missing));
-        ChiselHelper.addVariationFromStack(
-                "basalts",
-                getModItem(ProjectRedExploration.ID, "projectred.exploration.stone", 1, 4, missing));
+        if (PREDML) {
+            ChiselHelper.addVariationFromStack(
+                    "basalts",
+                    getModItem(ProjectRedExploration.ID, "projectred.exploration.stone", 1, 2, missing));
+            ChiselHelper.addVariationFromStack(
+                    "basalts",
+                    getModItem(ProjectRedExploration.ID, "projectred.exploration.stone", 1, 3, missing));
+            ChiselHelper.addVariationFromStack(
+                    "basalts",
+                    getModItem(ProjectRedExploration.ID, "projectred.exploration.stone", 1, 4, missing));
+        }
         ChiselHelper.addVariationFromStack("basalts", getModItem(IndustrialCraft2.ID, "blockBasalt", 1, 0, missing));
-        ChiselHelper.addVariationFromStack(
-                "basalts",
-                getModItem(GalacticraftAmunRa.ID, "tile.baseBlockRock", 1, 0, missing));
-        ChiselHelper.addVariationFromStack(
-                "basalts",
-                getModItem(GalacticraftAmunRa.ID, "tile.baseBlockRock", 1, 1, missing));
-        ChiselHelper.addVariationFromStack(
-                "basalts",
-                getModItem(GalacticraftAmunRa.ID, "tile.baseBlockRock", 1, 7, missing));
+        if (AMML) {
+            ChiselHelper.addVariationFromStack(
+                    "basalts",
+                    getModItem(GalacticraftAmunRa.ID, "tile.baseBlockRock", 1, 0, missing));
+            ChiselHelper.addVariationFromStack(
+                    "basalts",
+                    getModItem(GalacticraftAmunRa.ID, "tile.baseBlockRock", 1, 1, missing));
+            ChiselHelper.addVariationFromStack(
+                    "basalts",
+                    getModItem(GalacticraftAmunRa.ID, "tile.baseBlockRock", 1, 7, missing));
+        }
         ChiselHelper.addGroup("redgranite");
         ChiselHelper.addVariationFromStack(
                 "redgranite",
