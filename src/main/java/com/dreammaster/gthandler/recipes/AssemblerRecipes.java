@@ -1756,23 +1756,13 @@ public class AssemblerRecipes implements Runnable {
         GTValues.RA.stdBuilder()
                 .itemInputs(
                         GTModHandler.getIC2Item("ironFurnace", 3L),
-                        ItemList.Casing_HeatProof.get(1L),
+                        ItemList.Machine_LV_E_Furnace.get(1L),
+                        GregtechItemList.BoilerChassis_Tier0.get(1L),
+                        ItemList.Casing_HeatProof.get(2L),
                         GTOreDictUnificator.get(OrePrefixes.circuit, Materials.LV, 3),
-                        GTOreDictUnificator.get(OrePrefixes.cableGt01, Materials.Tin, 2))
+                        GTOreDictUnificator.get(OrePrefixes.cableGt04, Materials.Tin, 2))
                 .itemOutputs(ItemList.Machine_Multi_BlastFurnace.get(1L)).duration(10 * SECONDS).eut(TierEU.RECIPE_LV)
                 .addTo(assemblerRecipes);
-
-        // EBF Controller
-        if (EtFuturumRequiem.isModLoaded()) {
-            GTValues.RA.stdBuilder()
-                    .itemInputs(
-                            getModItem(EtFuturumRequiem.ID, "blast_furnace", 3L, 0),
-                            ItemList.Casing_HeatProof.get(1L),
-                            GTOreDictUnificator.get(OrePrefixes.circuit, Materials.LV, 3),
-                            GTOreDictUnificator.get(OrePrefixes.cableGt01, Materials.Tin, 2))
-                    .itemOutputs(ItemList.Machine_Multi_BlastFurnace.get(1L)).duration(10 * SECONDS)
-                    .eut(TierEU.RECIPE_LV).addTo(assemblerRecipes);
-        }
 
         // Vacuum Freezer Controller
         GTValues.RA.stdBuilder()
@@ -5065,7 +5055,7 @@ public class AssemblerRecipes implements Runnable {
                 .itemInputs(
                         GTOreDictUnificator.get(OrePrefixes.stick, Materials.CertusQuartz, 4L),
                         getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 4, 22),
-                        getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 12))
+                        ItemList.Circuit_Wetwaresupercomputer.get(1))
                 .circuit(3).itemOutputs(getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 2, 43))
                 .duration(5 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
         // Annihilation Core
@@ -5073,7 +5063,7 @@ public class AssemblerRecipes implements Runnable {
                 .itemInputs(
                         GTOreDictUnificator.get(OrePrefixes.stick, Materials.NetherQuartz, 4L),
                         getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 4, 22),
-                        getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 12))
+                        ItemList.Circuit_Wetwaresupercomputer.get(1))
                 .circuit(3).itemOutputs(getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 2, 44))
                 .duration(5 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
         // Wireless Receiver
@@ -5151,19 +5141,6 @@ public class AssemblerRecipes implements Runnable {
                 // ME Interface
                 getModItem(AppliedEnergistics2.ID, "tile.BlockInterface", 1, 0)).circuit(2)
                 .itemOutputs(getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 54)).duration(5 * SECONDS)
-                .eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-
-        // ME interface (flat version)
-        GTValues.RA.stdBuilder().itemInputs(
-                GTOreDictUnificator.get(OrePrefixes.plate, Materials.Titanium, 4),
-                // Fluix Cable
-                getModItem(AppliedEnergistics2.ID, "item.ItemMultiPart", 2, 16),
-                // Formation Core
-                getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 43),
-                // Annihilation Core
-                getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 44),
-                ItemList.Casing_EV.get(1L)).circuit(3)
-                .itemOutputs(getModItem(AppliedEnergistics2.ID, "item.ItemMultiPart", 1, 440)).duration(5 * SECONDS)
                 .eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
 
         if (AE2FluidCraft.isModLoaded()) {
