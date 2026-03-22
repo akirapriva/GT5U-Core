@@ -2,23 +2,8 @@ package com.dreammaster.scripts;
 
 import static com.dreammaster.scripts.BooleanModLoaded.*;
 import static gregtech.api.GregTechAPI.sBlockOres1;
-import static gregtech.api.enums.Mods.AppliedEnergistics2;
-import static gregtech.api.enums.Mods.BiomesOPlenty;
-import static gregtech.api.enums.Mods.BloodArsenal;
-import static gregtech.api.enums.Mods.CropsPlusPlus;
-import static gregtech.api.enums.Mods.DraconicEvolution;
-import static gregtech.api.enums.Mods.IndustrialCraft2;
-import static gregtech.api.enums.Mods.MCFrames;
-import static gregtech.api.enums.Mods.Minecraft;
-import static gregtech.api.enums.Mods.Natura;
-import static gregtech.api.enums.Mods.OpenBlocks;
-import static gregtech.api.enums.Mods.PamsHarvestCraft;
-import static gregtech.api.enums.Mods.ProjectRedExpansion;
-import static gregtech.api.enums.Mods.ProjectRedTransmission;
-import static gregtech.api.enums.Mods.StructureLib;
-import static gregtech.api.enums.Mods.Thaumcraft;
-import static gregtech.api.enums.Mods.ThaumicBases;
-import static gregtech.api.enums.Mods.TinkerConstruct;
+import static gregtech.api.enums.Mods.*;
+import static gregtech.api.enums.Mods.GalacticraftAmunRa;
 import static gregtech.api.recipe.RecipeMaps.alloySmelterRecipes;
 import static gregtech.api.recipe.RecipeMaps.assemblerRecipes;
 import static gregtech.api.recipe.RecipeMaps.autoclaveRecipes;
@@ -596,6 +581,35 @@ public class ScriptGregtech implements IScriptLoader {
                 "platePaper",
                 "dyeBlue",
                 "dyeWhite");
+
+        ItemStack radPlate = GTModHandler.getModItem(GoodGenerator.ID, "advancedRadiationProtectionPlate", 1L, 0);
+        ItemStack amunRaItem = getModItem(GalacticraftAmunRa.ID, "item.baseItem", 1, 30);
+
+        if (radPlate != null && amunRaItem != null) {
+            ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(
+                    ItemList.ZPM.get(1L),
+                    "-aaaaaaa-",
+                    "-aaabaaa-",
+                    "--abcba--",
+                    "--bdedb--",
+                    "--cefec--",
+                    "--bdedb--",
+                    "--abcba--",
+                    "--aabaa--",
+                    "---aaa---",
+                    'a',
+                    GTOreDictUnificator.get(OrePrefixes.plateSuperdense, Materials.DraconiumAwakened, 1),
+                    'b',
+                    GTOreDictUnificator.get(OrePrefixes.plate, Materials.Dilithium, 1),
+                    'c',
+                    radPlate,
+                    'd',
+                    ItemList.Electromagnet_Neodymium.get(1L),
+                    'e',
+                    "circuitUltimate",
+                    'f',
+                    amunRaItem);
+        }
 
         if (TML && AML && AEML && OML) {
             ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(

@@ -1645,25 +1645,25 @@ public class GT_CraftingRecipeLoader extends gregtech.loaders.postload.CraftingR
             GTModHandler.addCraftingRecipe(
                     GTModHandler.getModItem(Railcraft.ID, aTextMachineAlpha, 1L, 14),
                     bits,
-                    new Object[] { "PPP", "IhI", "PSP", 'P', OrePrefixes.plank.get(Materials.Wood), 'I',
-                            OrePrefixes.stick.get(Materials.AnyIron), 'S', ItemList.IC2_Resin.get(1L, o) });
+                    new Object[] { "PPP", "IhI", "PSP", 'P', GTModHandler.getModItem(Railcraft.ID, "part.tie", 1L, 0),
+                            'I', OrePrefixes.stick.get(Materials.AnyIron), 'S', ItemList.IC2_Resin.get(1L, o) });
             GTModHandler.addCraftingRecipe(
                     GTModHandler.getModItem(Railcraft.ID, aTextMachineAlpha, 2L, 14),
                     bits4,
-                    new Object[] { "PPP", "IhI", "PSP", 'P', OrePrefixes.plank.get(Materials.Wood), 'I',
-                            OrePrefixes.stick.get(Materials.Steel), 'S',
+                    new Object[] { "PPP", "IhI", "PSP", 'P', GTModHandler.getModItem(Railcraft.ID, "part.tie", 1L, 0),
+                            'I', OrePrefixes.stick.get(Materials.Steel), 'S',
                             GTModHandler.getModItem(aTextTConstruct, "slime.gel", 1L, 0) });
             GTModHandler.addCraftingRecipe(
                     GTModHandler.getModItem(Railcraft.ID, aTextMachineAlpha, 2L, 14),
                     bits4,
-                    new Object[] { "PPP", "IhI", "PSP", 'P', OrePrefixes.plank.get(Materials.Wood), 'I',
-                            OrePrefixes.stick.get(Materials.Steel), 'S',
+                    new Object[] { "PPP", "IhI", "PSP", 'P', GTModHandler.getModItem(Railcraft.ID, "part.tie", 1L, 0),
+                            'I', OrePrefixes.stick.get(Materials.Steel), 'S',
                             GTModHandler.getModItem(aTextTConstruct, "slime.gel", 1L, 1) });
             GTModHandler.addCraftingRecipe(
                     GTModHandler.getModItem(Railcraft.ID, aTextMachineAlpha, 4L, 14),
                     bits4,
-                    new Object[] { "PPP", "IhI", "PSP", 'P', OrePrefixes.plank.get(Materials.Wood), 'I',
-                            OrePrefixes.stick.get(Materials.StainlessSteel), 'S',
+                    new Object[] { "PPP", "IhI", "PSP", 'P', GTModHandler.getModItem(Railcraft.ID, "part.tie", 1L, 0),
+                            'I', OrePrefixes.stick.get(Materials.StainlessSteel), 'S',
                             GTModHandler.getModItem(aTextTConstruct, "slime.gel", 1L, 2) });
 
             GTModHandler.addCraftingRecipe(

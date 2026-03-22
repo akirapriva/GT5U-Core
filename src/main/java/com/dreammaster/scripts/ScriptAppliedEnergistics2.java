@@ -603,15 +603,15 @@ public class ScriptAppliedEnergistics2 implements IScriptLoader {
 
         addShapedRecipe(
                 getModItem(AppliedEnergistics2.ID, "tile.BlockController", 1, 0, missing),
-                "plateTitanium",
-                "circuitAdvanced",
-                "plateTitanium",
+                "plateRuridit",
+                ItemList.Field_Generator_EV.get(1L),
+                "plateRuridit",
                 getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
                 getModItem(AppliedEnergistics2.ID, "tile.BlockFluix", 1, 0, missing),
                 getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
-                "plateTitanium",
-                "circuitAdvanced",
-                "plateTitanium");
+                "plateRuridit",
+                ItemList.Field_Generator_EV.get(1L),
+                "plateRuridit");
         addShapedRecipe(
                 getModItem(AppliedEnergistics2.ID, "tile.BlockEnergyCell", 1, 0, missing),
                 GTOreDictUnificator.get(OrePrefixes.plate, Materials.CertusQuartz, 1L),
@@ -649,15 +649,15 @@ public class ScriptAppliedEnergistics2 implements IScriptLoader {
         }
         addShapedRecipe(
                 getModItem(AppliedEnergistics2.ID, "tile.BlockDrive", 1, 0, missing),
-                "plateTitanium",
+                "plateRuridit",
                 getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 24, missing),
-                "plateTitanium",
+                "plateRuridit",
                 getModItem(AppliedEnergistics2.ID, "item.ItemMultiPart", 1, 16, missing),
                 getModItem(AppliedEnergistics2.ID, "tile.BlockChest", 1, 0, missing),
                 getModItem(AppliedEnergistics2.ID, "item.ItemMultiPart", 1, 16, missing),
-                "plateTitanium",
-                "circuitAdvanced",
-                "plateTitanium");
+                "plateRuridit",
+                ItemList.Circuit_Quantumprocessor.get(1L),
+                "plateRuridit");
         addShapedRecipe(
                 getModItem(AppliedEnergistics2.ID, "tile.BlockQuartzGrowthAccelerator", 1, 0, missing),
                 "plateTitanium",
@@ -682,15 +682,15 @@ public class ScriptAppliedEnergistics2 implements IScriptLoader {
                 "plateTitanium");
         addShapedRecipe(
                 getModItem(AppliedEnergistics2.ID, "tile.BlockMolecularAssembler", 1, 0, missing),
-                "plateTitanium",
-                "blockGlass",
-                "plateTitanium",
+                "plateRuridit",
+                "blockGlassZPM",
+                "plateRuridit",
                 getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 44, missing),
                 ItemList.Machine_EV_Assembler.get(1L),
                 getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 43, missing),
-                "plateTitanium",
-                "blockGlass",
-                "plateTitanium");
+                "plateRuridit",
+                "blockGlassZPM",
+                "plateRuridit");
         addShapedRecipe(
                 getModItem(AppliedEnergistics2.ID, "tile.BlockCharger", 1, 0, missing),
                 "plateTitanium",
@@ -748,15 +748,15 @@ public class ScriptAppliedEnergistics2 implements IScriptLoader {
                 "plateTitanium");
         addShapedRecipe(
                 getModItem(AppliedEnergistics2.ID, "tile.BlockInterface", 1, 0, missing),
-                "plateTitanium",
+                "plateTriniumNaquadahCarbonite",
                 getModItem(AppliedEnergistics2.ID, "item.ItemMultiPart", 1, 16, missing),
-                "plateTitanium",
+                "plateTriniumNaquadahCarbonite",
                 getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 44, missing),
-                ItemList.Casing_EV.get(1L),
+                ItemList.Casing_UV.get(1L),
                 getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 43, missing),
-                "plateTitanium",
+                "plateTriniumNaquadahCarbonite",
                 getModItem(AppliedEnergistics2.ID, "item.ItemMultiPart", 1, 16, missing),
-                "plateTitanium");
+                "plateTriniumNaquadahCarbonite");
         addShapelessRecipe(
                 getModItem(AppliedEnergistics2.ID, "tile.BlockInterface", 1, 0, missing),
                 getModItem(AppliedEnergistics2.ID, "item.ItemMultiPart", 1, 440, missing));

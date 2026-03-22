@@ -4944,15 +4944,6 @@ public class AssemblerRecipes implements Runnable {
                 .fluidInputs(Materials.Titanium.getMolten(36L)).duration(5 * SECONDS).eut(TierEU.RECIPE_HV)
                 .addTo(assemblerRecipes);
 
-        // Controller
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        GTOreDictUnificator.get(OrePrefixes.plate, Materials.Titanium, 4L),
-                        GTOreDictUnificator.get(OrePrefixes.circuit, Materials.HV, 2L),
-                        getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 2, 24),
-                        getModItem(AppliedEnergistics2.ID, "tile.BlockFluix", 1, 0))
-                .circuit(2).itemOutputs(getModItem(AppliedEnergistics2.ID, "tile.BlockController", 1))
-                .duration(5 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
         // Energy Cells
         GTValues.RA.stdBuilder()
                 .itemInputs(
@@ -5052,11 +5043,11 @@ public class AssemblerRecipes implements Runnable {
         // Interface
         GTValues.RA.stdBuilder()
                 .itemInputs(
-                        GTOreDictUnificator.get(OrePrefixes.plate, Materials.Titanium, 4L),
+                        MaterialsAlloy.TRINIUM_NAQUADAH_CARBON.getPlate(4),
                         getModItem(AppliedEnergistics2.ID, "item.ItemMultiPart", 2, 16),
                         getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 43),
                         getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 44),
-                        ItemList.Casing_EV.get(1L))
+                        ItemList.Casing_UV.get(1L))
                 .circuit(2).itemOutputs(getModItem(AppliedEnergistics2.ID, "tile.BlockInterface", 1))
                 .duration(5 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
         // Crafting Unit
@@ -5095,16 +5086,6 @@ public class AssemblerRecipes implements Runnable {
                         getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 9))
                 .circuit(3).itemOutputs(getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 41))
                 .duration(5 * SECONDS).eut(TierEU.RECIPE_HV).addTo(assemblerRecipes);
-        // Molecular Assembler
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        ItemList.Machine_EV_Assembler.get(1L),
-                        GTOreDictUnificator.get(OrePrefixes.plate, Materials.Titanium, 4L),
-                        getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 43),
-                        getModItem(AppliedEnergistics2.ID, "item.ItemMultiMaterial", 1, 44))
-                .circuit(3).itemOutputs(getModItem(AppliedEnergistics2.ID, "tile.BlockMolecularAssembler", 1))
-                .fluidInputs(Materials.Glass.getMolten(288L)).duration(5 * SECONDS).eut(TierEU.RECIPE_HV)
-                .addTo(assemblerRecipes);
 
         // Basic Card
         GTValues.RA.stdBuilder().itemInputs(
@@ -5405,7 +5386,7 @@ public class AssemblerRecipes implements Runnable {
         ItemStack alveary = GTModHandler.getModItem(Forestry.ID, "alveary", 1L, 0);
 
         // Impregnated Frame
-        if (PamsHarvestCraft.isModLoaded()) {
+        if (PamsHarvestCraft.isModLoaded() && Railcraft.isModLoaded()) {
             GTValues.RA.stdBuilder()
                     .itemInputs(
                             GTModHandler.getModItem(Railcraft.ID, "slab", 3L, 38),

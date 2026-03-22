@@ -1,28 +1,7 @@
 package com.dreammaster.scripts;
 
 import static com.dreammaster.scripts.BooleanModLoaded.*;
-import static gregtech.api.enums.Mods.AdvancedSolarPanel;
-import static gregtech.api.enums.Mods.Avaritia;
-import static gregtech.api.enums.Mods.BloodArsenal;
-import static gregtech.api.enums.Mods.BloodMagic;
-import static gregtech.api.enums.Mods.Botania;
-import static gregtech.api.enums.Mods.DraconicEvolution;
-import static gregtech.api.enums.Mods.ElectroMagicTools;
-import static gregtech.api.enums.Mods.EternalSingularity;
-import static gregtech.api.enums.Mods.ExtraUtilities;
-import static gregtech.api.enums.Mods.ForbiddenMagic;
-import static gregtech.api.enums.Mods.Gadomancy;
-import static gregtech.api.enums.Mods.GalaxySpace;
-import static gregtech.api.enums.Mods.GraviSuite;
-import static gregtech.api.enums.Mods.IndustrialCraft2;
-import static gregtech.api.enums.Mods.Minecraft;
-import static gregtech.api.enums.Mods.TaintedMagic;
-import static gregtech.api.enums.Mods.Thaumcraft;
-import static gregtech.api.enums.Mods.ThaumicBases;
-import static gregtech.api.enums.Mods.ThaumicTinkerer;
-import static gregtech.api.enums.Mods.TinkersGregworks;
-import static gregtech.api.enums.Mods.UniversalSingularities;
-import static gregtech.api.enums.Mods.WitchingGadgets;
+import static gregtech.api.enums.Mods.*;
 import static gregtech.api.recipe.RecipeMaps.alloySmelterRecipes;
 import static gregtech.api.recipe.RecipeMaps.assemblerRecipes;
 import static gregtech.api.recipe.RecipeMaps.extractorRecipes;
@@ -125,6 +104,7 @@ public class ScriptAvaritia implements IScriptLoader {
         AvaritiaHelper.removeExtremeCraftingRecipe(getModItem(Avaritia.ID, "Infinity_Pants", 1, 0, missing));
         AvaritiaHelper.removeExtremeCraftingRecipe(getModItem(Avaritia.ID, "Infinity_Shoes", 1, 0, missing));
         AvaritiaHelper.removeExtremeCraftingRecipe(getModItem(Avaritia.ID, "Skull_Sword", 1, 0, missing));
+
         if (EML) {
             if (XUML) {
                 ExtremeCraftingManager.getInstance().addExtremeShapedOreRecipe(

@@ -258,14 +258,15 @@ public class ScriptAvaritiaAddons implements IScriptLoader {
                             .itemOutputs(getModItem(EternalSingularity.ID, "combined_singularity", 1L, 2))
                             .duration(1 * SECONDS).eut(TierEU.RECIPE_UMV).metadata(CompressionTierKey.INSTANCE, 2)
                             .addTo(neutroniumCompressorRecipes);
+                    // Cryptic Singularity
+                    GTValues.RA.stdBuilder().itemInputs(
+                            // iron singularity
+                            getModItem(Avaritia.ID, "Singularity", 1L, 0))
+                            .fluidInputs(Materials.Creon.getMolten(4 * 144L))
+                            .itemOutputs(getModItem(EternalSingularity.ID, "combined_singularity", 1L, 4))
+                            .duration(1 * SECONDS).eut(TierEU.RECIPE_UMV).metadata(CompressionTierKey.INSTANCE, 2)
+                            .addTo(neutroniumCompressorRecipes);
                 }
-                // Cryptic Singularity
-                GTValues.RA.stdBuilder().itemInputs(
-                        // iron singularity
-                        getModItem(Avaritia.ID, "Singularity", 1L, 0)).fluidInputs(Materials.Creon.getMolten(4 * 144L))
-                        .itemOutputs(getModItem(EternalSingularity.ID, "combined_singularity", 1L, 4))
-                        .duration(1 * SECONDS).eut(TierEU.RECIPE_UMV).metadata(CompressionTierKey.INSTANCE, 2)
-                        .addTo(neutroniumCompressorRecipes);
             }
         }
     }

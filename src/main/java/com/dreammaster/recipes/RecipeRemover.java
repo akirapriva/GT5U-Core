@@ -1104,6 +1104,7 @@ public class RecipeRemover {
         removeRecipeByOutputDelayed(getModItem(ExtraUtilities.ID, "heatingElement", 1, 0, missing));
         removeRecipeByOutputDelayed(getModItem(ExtraUtilities.ID, "nodeUpgrade", 1, 10, missing));
         removeRecipeByOutputDelayed(getModItem(ExtraUtilities.ID, "golden_lasso", 1, 0, missing));
+        removeRecipeByOutputDelayed(getModItem(ExtraUtilities.ID, "golden_bag", 1, 0, missing));
         removeRecipeByOutputDelayed(getModItem(ExtraUtilities.ID, "scanner", 1, 0, missing));
         removeRecipeByOutputDelayed(getModItem(ExtraUtilities.ID, "builderswand", 1, 0, missing));
         removeRecipeByOutputDelayed(getModItem(ExtraUtilities.ID, "creativebuilderswand", 1, 0, missing));

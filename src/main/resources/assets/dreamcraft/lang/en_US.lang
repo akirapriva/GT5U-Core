@@ -1787,7 +1787,7 @@ dreamcraft.gui.quitmessage.yes=Yes
 dreamcraft.gui.quitmessage.no=No
 dreamcraft.gui.quitmessage.never=Don't Show Again!
 
-dreamcraft.welcome.welcome=Build: %s
+dreamcraft.welcome.welcome=Build: 1.2a
 dreamcraft.welcome.questbook=Fork is still in heavily WIP!
 dreamcraft.welcome.gtnh_wiki=Wiki link: %s
 dreamcraft.welcome.click_wiki=Click to open the wiki!

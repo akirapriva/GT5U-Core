@@ -384,28 +384,6 @@ public class ScriptExtraUtilities implements IScriptLoader {
                     null);
         }
         addShapedRecipe(
-                getModItem(ExtraUtilities.ID, "drum", 1, 0, missing),
-                "plateSteel",
-                "ringMeteoricSteel",
-                "plateSteel",
-                "plateSteel",
-                "pipeHugeSteel",
-                "plateSteel",
-                "plateSteel",
-                "ringMeteoricSteel",
-                "plateSteel");
-        addShapedRecipe(
-                getModItem(ExtraUtilities.ID, "drum", 1, 1, missing),
-                "plateBedrockium",
-                "ringTungstenSteel",
-                "plateBedrockium",
-                "plateBedrockium",
-                getModItem(ExtraUtilities.ID, "drum", 1, 0, missing),
-                "plateBedrockium",
-                "plateBedrockium",
-                "ringTungstenSteel",
-                "plateBedrockium");
-        addShapedRecipe(
                 getModItem(ExtraUtilities.ID, "conveyor", 1, 0, missing),
                 "craftingToolHardHammer",
                 getModItem(Minecraft.ID, "rail", 1, 0, missing),
@@ -440,50 +418,6 @@ public class ScriptExtraUtilities implements IScriptLoader {
                 getModItem(ExtraUtilities.ID, "decorativeBlock1", 1, 8, missing),
                 getModItem(ExtraUtilities.ID, "filing", 1, 0, missing),
                 getModItem(ExtraUtilities.ID, "decorativeBlock1", 1, 8, missing));
-        addShapedRecipe(
-                getModItem(ExtraUtilities.ID, "watering_can", 1, 1, missing),
-                "craftingToolHardHammer",
-                "ringSteel",
-                "craftingToolScrewdriver",
-                "plateAnyIron",
-                "plateAnyIron",
-                "stickAnyIron",
-                "plateAnyIron",
-                "plateAnyIron",
-                "screwSteel");
-        addShapedRecipe(
-                getModItem(ExtraUtilities.ID, "watering_can", 1, 1, missing),
-                "craftingToolScrewdriver",
-                "ringSteel",
-                "craftingToolHardHammer",
-                "plateAnyIron",
-                "plateAnyIron",
-                "stickAnyIron",
-                "plateAnyIron",
-                "plateAnyIron",
-                "screwSteel");
-        addShapedRecipe(
-                getModItem(ExtraUtilities.ID, "watering_can", 1, 3, missing),
-                "craftingToolHardHammer",
-                "ringNeutronium",
-                "craftingToolScrewdriver",
-                "plateBedrockium",
-                "plateBedrockium",
-                "plateBedrockium",
-                "plateBedrockium",
-                "plateBedrockium",
-                "screwNeutronium");
-        addShapedRecipe(
-                getModItem(ExtraUtilities.ID, "watering_can", 1, 3, missing),
-                "craftingToolScrewdriver",
-                "ringNeutronium",
-                "craftingToolHardHammer",
-                "plateBedrockium",
-                "plateBedrockium",
-                "plateBedrockium",
-                "plateBedrockium",
-                "plateBedrockium",
-                "screwNeutronium");
         addShapedRecipe(
                 getModItem(ExtraUtilities.ID, "sound_muffler", 1, 0, missing),
                 "blockWool",
@@ -785,79 +719,14 @@ public class ScriptExtraUtilities implements IScriptLoader {
                 "stickObsidian",
                 null,
                 null);
-        addShapedRecipe(
-                getModItem(ExtraUtilities.ID, "shears", 1, 0, missing),
-                "ingotUnstable",
-                null,
-                "ingotUnstable",
-                getModItem(ExtraUtilities.ID, "angelBlock", 1, 0, missing),
-                getModItem(Minecraft.ID, "shears", 1, 0, missing),
-                getModItem(ExtraUtilities.ID, "angelBlock", 1, 0, missing));
-        if (RTML) {
+        if (TCML) {
             addShapedRecipe(
-                    getModItem(ExtraUtilities.ID, "ethericsword", 1, 0, missing),
+                    getModItem(ExtraUtilities.ID, "lawSword", 1, 0, missing),
+                    null,
+                    getModItem(TinkerConstruct.ID, "largeSwordBlade", 1, 314, missing),
+                    null,
                     null,
                     "ingotUnstable",
-                    null,
-                    null,
-                    "ingotUnstable",
-                    null,
-                    null,
-                    getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
-                    null);
-            if (TCML) {
-                addShapedRecipe(
-                        getModItem(ExtraUtilities.ID, "lawSword", 1, 0, missing),
-                        null,
-                        getModItem(TinkerConstruct.ID, "largeSwordBlade", 1, 314, missing),
-                        null,
-                        null,
-                        "ingotUnstable",
-                        null,
-                        null,
-                        getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
-                        null);
-            }
-            addShapedRecipe(
-                    getModItem(ExtraUtilities.ID, "erosionShovel", 1, 0, missing),
-                    null,
-                    "ingotUnstable",
-                    null,
-                    null,
-                    getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
-                    null,
-                    null,
-                    getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
-                    null);
-            addShapedRecipe(
-                    getModItem(ExtraUtilities.ID, "destructionpickaxe", 1, 0, missing),
-                    "ingotUnstable",
-                    "ingotUnstable",
-                    "ingotUnstable",
-                    null,
-                    getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
-                    null,
-                    null,
-                    getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
-                    null);
-            addShapedRecipe(
-                    getModItem(ExtraUtilities.ID, "defoliageAxe", 1, 0, missing),
-                    "ingotUnstable",
-                    "ingotUnstable",
-                    null,
-                    "ingotUnstable",
-                    getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
-                    null,
-                    null,
-                    getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
-                    null);
-            addShapedRecipe(
-                    getModItem(ExtraUtilities.ID, "temporalHoe", 1, 0, missing),
-                    "ingotUnstable",
-                    "ingotUnstable",
-                    null,
-                    null,
-                    getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
                     null,
                     null,
                     getModItem(RandomThings.ID, "ingredient", 1, 1, missing),
@@ -1208,13 +1077,6 @@ public class ScriptExtraUtilities implements IScriptLoader {
                         getModItem(Minecraft.ID, "redstone_block", 4, 0, missing))
                 .itemOutputs(getModItem(ExtraUtilities.ID, "budoff", 1, 3, missing)).duration(10 * SECONDS)
                 .eut(TierEU.RECIPE_MV).addTo(assemblerRecipes);
-        GTValues.RA.stdBuilder()
-                .itemInputs(
-                        getModItem(Minecraft.ID, "torch", 5, 0, missing),
-                        GTOreDictUnificator.get(OrePrefixes.gemFlawed, Materials.Diamond, 1L))
-                .itemOutputs(getModItem(ExtraUtilities.ID, "chandelier", 1, 0, missing))
-                .fluidInputs(FluidRegistry.getFluidStack("molten.tin", 1440)).duration(30 * SECONDS)
-                .eut(TierEU.RECIPE_LV).addTo(assemblerRecipes);
         GTValues.RA.stdBuilder()
                 .itemInputs(
                         getModItem(Minecraft.ID, "stone", 4, 0, missing),

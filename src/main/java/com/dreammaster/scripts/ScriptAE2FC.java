@@ -761,17 +761,6 @@ public class ScriptAE2FC implements IScriptLoader {
                 AE2_CARD_CRAFTING,
                 NIOBIUM_PLATE);
         // interface
-        addShapedRecipe(
-                AE2FC_INTERFACE,
-                IRON_PLATE,
-                LAPIS_PLATE,
-                IRON_PLATE,
-                FLUID_CORE_1,
-                AE2_INTERFACE,
-                FLUID_CORE_1,
-                IRON_PLATE,
-                LAPIS_PLATE,
-                IRON_PLATE);
         // Fluid encoder
         addShapedRecipe(
                 AE2FC_ENCODER,

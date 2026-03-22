@@ -1,6 +1,5 @@
 package com.dreammaster.scripts;
 
-import static com.dreammaster.main.MainRegistry.Module_CustomFuels;
 import static com.dreammaster.scripts.BooleanModLoaded.*;
 import static gregtech.api.enums.Mods.Minecraft;
 import static gregtech.api.enums.Mods.Natura;
@@ -3445,34 +3444,6 @@ public class ScriptNatura implements IScriptLoader {
                 .fluidInputs(FluidRegistry.getFluidStack("sulfurdioxide", 4000)).duration(20 * TICKS)
                 .eut(TierEU.RECIPE_LV / 2).addTo(mixerRecipes);
 
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "NetherPressurePlate", 1, 0, missing), (short) 75);
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "pressureplate.eucalyptus", 1, 0, missing), (short) 75);
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "pressureplate.sakura", 1, 0, missing), (short) 75);
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "pressureplate.ghostwood", 1, 0, missing), (short) 75);
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "pressureplate.redwood", 1, 0, missing), (short) 75);
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "pressureplate.bloodwood", 1, 0, missing), (short) 75);
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "pressureplate.hopseed", 1, 0, missing), (short) 75);
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "pressureplate.maple", 1, 0, missing), (short) 75);
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "pressureplate.amaranth", 1, 0, missing), (short) 75);
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "pressureplate.silverbell", 1, 0, missing), (short) 75);
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "pressureplate.tiger", 1, 0, missing), (short) 75);
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "pressureplate.willow", 1, 0, missing), (short) 75);
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "pressureplate.darkwood", 1, 0, missing), (short) 75);
-        Module_CustomFuels
-                .registerCustomFuelValue(getModItem(Natura.ID, "pressureplate.fusewood", 1, 0, missing), (short) 75);
         GTValues.RA.stdBuilder().itemInputs(getModItem(Natura.ID, "Bluebells", 1, 0, missing))
                 .itemOutputs(ItemList.Color_04.get(2L)).duration(15 * SECONDS).eut(2).addTo(extractorRecipes);
 
